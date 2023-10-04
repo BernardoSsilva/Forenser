@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import cenaDecrime from './assets/cenaDeCrime.jpg'
+import Login from './pages/Login'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +16,7 @@ function App() {
               </svg>rencer
           </p>
           <div className="cadLink">
-            <a  href="#">
+            <a href='pages/Login/index.tsx'>
                 Cadastre-se
             </a>
           </div>
