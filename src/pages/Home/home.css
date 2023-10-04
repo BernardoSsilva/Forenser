@@ -1,0 +1,137 @@
+.App {
+    text-align: center;
+    background: #F6F5F5;
+    width: 98vw;
+    height: 114vh;
+  }
+  
+  .textBox1{
+    color: #000;
+    font-family: Kiwi Maru;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+  }
+  
+  .weAre{
+    width: 34.25rem;
+  height: 9.3125rem;
+  flex-shrink: 0;
+  margin-bottom: -4rem;
+  }
+  
+  .button1{
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    font-size: 2rem;
+    width: 22.1875rem;
+    height: 3.3125rem;
+    flex-shrink: 0;
+    justify-content: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.45) inset;
+    transition: 0.7s;
+  }
+  
+  .button1 p{
+     margin-top: -5%
+  }
+  
+  .button1:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0px 5px 5px 0px rgba(255, 255, 255, 0.45) inset;
+  }
+  
+  .questions{
+    text-align: left;
+    width: 18.625rem;
+    color: #000;
+    margin-left: 2.3rem;
+    font-family: Kiwi Maru;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: -1rem;
+  }
+  
+  .weAre h1{
+    margin-left: -12rem;
+  }
+  
+  
+  .title{
+    width: 14rem;
+  height: 2.125rem;
+  flex-shrink: 0;
+  color: #FFF;
+  margin-top: 0.5rem;
+  font-family: Kiwi Maru;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  }
+  
+  .container{
+    display: flex;
+  }
+  
+  .cadLink{
+    color: #FFF;
+    font-family: Kiwi Maru;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 1.5rem;
+    text-decoration: none;
+    margin-left: 67%;
+  }
+  
+  .cadLink a{
+    color: #FFF;
+    font-family: Kiwi Maru;
+    font-size: 2.5rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    border-bottom: 1px solid #FFF;
+    color: wheat;
+    transition: 0.5s;
+  }
+  
+  
+  
+  .userIcontxt{
+    margin-top: 1.3rem;
+    margin-left: -9px;
+  }
+  
+  
+  .App-header {
+    margin-top: -1rem;
+    width: 98.75vw;
+    height: 5rem;
+    flex-shrink: 0;
+    background: #000;
+    justify-content: center;
+  }
+  
+  img{
+    flex-shrink: 0;
+    position: absolute;
+    left: 9;
+    right: 0;
+    top: 0;
+    margin-top: 4rem;
+  }
+  
+  
+  
