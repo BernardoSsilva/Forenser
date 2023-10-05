@@ -5,10 +5,10 @@ import Login from "../pages/Login/Login";
 
 const Routes = () => {
     return(
-        <div>
-                <Route path="/" Component={Home}></Route>
-                <Route path="/login" Component={Login}></Route>
-        </div>
+        <>
+        <Route path="/" Component={Home}></Route>
+        <Route path="/login" Component={Login}></Route>
+        </>
     )
 }
 

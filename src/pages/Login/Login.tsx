@@ -1,24 +1,20 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
-import Axios from "axios";
+import { api } from "../../service";
 import './login.css';
 
 const Login = () => {
 
     const handleClickLogin = (values: any) => {};
-    const handleClickRegister = (values: { email: any; password: any; nome:any; telefone:any;sexo:any;cpf:any;data_n:any;}) => {
-        Axios.post("https://localhost:3001/register", {
-            email: values.email,
-            password: values.password,
-            nome: values.nome,
-            telefone: values.telefone,
-            sexo: values.sexo,
-            cpf: values.cpf,
-            data_n: values.data_n,
-        }).then((Response: any) => {
-            console.log(Response)
-        });
+    const handleClickRegister =(values:any) => {
+        try{
+            api.post("/register", values).then((Response: any) => {
+                console.log(Response)
+            });
+        } catch(error){
+            console.log(error)
+        }     
     };
 
     const validationLogin = yup.object().shape({
