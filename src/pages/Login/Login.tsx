@@ -1,14 +1,14 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
-import { Axios } from "axios";
+import Axios from "axios";
 import './login.css';
 
 const Login = () => {
 
     const handleClickLogin = (values: any) => {};
     const handleClickRegister = (values: { email: any; password: any; nome:any; telefone:any;sexo:any;cpf:any;data_n:any;}) => {
-        Axios.post("https://loocalhost:3001/login", {
+        Axios.post("https://localhost:3001/register", {
             email: values.email,
             password: values.password,
             nome: values.nome,
@@ -30,7 +30,7 @@ const Login = () => {
     const validationRegister = yup.object().shape({
         email: yup.string().email("E-mail invalido").required("Este campo é obrigatório"),
         senha: yup.string().min(8, "Senha invalida").required("Este campo é obrigatório"),
-        confirm: yup.string().oneOf([yup.ref("senha"), null], "as senhas devem ser iguais").required("Este campo é obrigatório"),
+        confirm: yup.string().oneOf([yup.ref("senha")], "as senhas devem ser iguais").required("Este campo é obrigatório"),
         nome:   yup.string().required("este campo é obrigatório"),
         telefone: yup.string().required("este campo é obrigatório"),
         sexo: yup.string().required("este campo é obrigatório"),
@@ -70,9 +70,17 @@ const Login = () => {
 
             <h1>Registro</h1>
             <Formik 
-            initialValues={{}}
-            onSubmit={handleClickRegister}
-            validationSchema={validationRegister}>
+                onSubmit={handleClickRegister}
+                validationSchema={validationRegister} 
+                initialValues={{
+                    email: undefined,
+                    password: undefined,
+                    nome: undefined,
+                    telefone: undefined,
+                    sexo: undefined,
+                    cpf: undefined,
+                    data_n: undefined
+                }}>
                 <Form className="login-form">
                     <div className="formFields">
                     <Field name="nome" className="formField" placeholder="Nome completo" />
