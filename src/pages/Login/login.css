@@ -1,0 +1,56 @@
+/* register.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 70vw;
+    background-color: #f0f0f0;
+    margin-left: 25%;
+  }
+  
+  .login-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+  }
+  
+  .login-form h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: -0.5rem;
+    font-size: 3rem;
+  }
+  
+  .formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .formField {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .Button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .formError {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 5px;
+  }

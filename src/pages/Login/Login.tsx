@@ -26,13 +26,14 @@ const Login = () => {
     
     
     return(
-        <div>
-            <h1>Login</h1>
+        <div className="container">
+            
             <Formik 
             onSubmit={handleClickLogin}
             validationSchema={validationLogin}
             initialValues={{}}>
                 <Form className="login-form">
+                <h1>Login</h1>
                     <div className="formFields">
 
                         <Field name="email" type="email" className="formField" placeholder="Email" />
@@ -49,7 +50,7 @@ const Login = () => {
                         name="senha"
                         className="formError"/>
                     </div>
-                    <button className="Button" type="submit">Login</button>
+                    <button className="Button" type="submit">Login</button> Ainda não possui uma conta? <a href='/register'>Registre-se</a>
                 </Form>
             </Formik>
         </div>

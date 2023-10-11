@@ -111,7 +111,7 @@ const Register = () => {
                         name="confirm"
                         className="formError"/>
                     </div>
-                    <button className="Button" type="submit">Registrar-se</button>
+                    <button className="Button" type="submit">Registrar-se</button> ja possui uma conta? <a href='/login'>Realizar Login</a>
                 </Form>
                 </Formik>
                 </div>
