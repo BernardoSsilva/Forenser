@@ -27,9 +27,9 @@ const Register = () => {
     });
 
     return(
-        <div>
-        <h1>Registro</h1>
-            <Formik 
+        <div >
+                <div className="container">
+                <Formik 
                 onSubmit={handleClickRegister}
                 validationSchema={validationRegister} 
                 initialValues={{
@@ -41,7 +41,9 @@ const Register = () => {
                     cpf: undefined,
                     data_n: undefined
                 }}>
-                <Form className="login-form">
+                <Form className="register-form">
+                <h1>Registro</h1>
+
                     <div className="formFields">
                     <Field name="nome" className="formField" placeholder="Nome completo" />
 
@@ -111,8 +113,10 @@ const Register = () => {
                     </div>
                     <button className="Button" type="submit">Registrar-se</button>
                 </Form>
+                </Formik>
+                </div>
 
-            </Formik>
+           
             </div>
     );
 }

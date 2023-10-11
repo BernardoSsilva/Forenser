@@ -31,13 +31,21 @@
     height: 3.3125rem;
     flex-shrink: 0;
     justify-content: center;
+    color: black;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.45) inset;
     transition: 0.7s;
   }
   
   .button1 p{
-     margin-top: -5%
+     margin-top: 0.65rem;
+     
+     transition: 0.3s;
   }
+
+  .button1 p:hover{
+    margin-top: 0.45rem;
+    color: white;
+ }
   
   .button1:hover{
     background-color: black;
@@ -80,34 +88,6 @@
   .container{
     display: flex;
   }
-  
-  .cadLink{
-    color: #FFF;
-    font-family: Kiwi Maru;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 1.5rem;
-    text-decoration: none;
-    margin-left: 67%;
-  }
-  
-  .cadLink a{
-    color: #FFF;
-    font-family: Kiwi Maru;
-    font-size: 2.5rem;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    border-bottom: 1px solid #FFF;
-    color: wheat;
-    transition: 0.5s;
-  }
-  
-  
   
   .userIcontxt{
     margin-top: 1.3rem;

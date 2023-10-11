@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 import cenaDecrime from './cenaDeCrime.jpg';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 
 
 
@@ -33,7 +33,7 @@ const Home = () => {
           Deseja Realizar seu registro?
           </p>
           <p className="questions">
-            <a href="/register"  className="button1">
+            <a href='/register' className="button1">
               <p>Clique Aqui</p>
             </a>
           </p>
@@ -44,7 +44,7 @@ const Home = () => {
           Deseja realizar login?        
           </p>
           <p className="questions">
-            <a href="/login" className="button1">
+            <a href='/login'  className="button1">
                 <p>Clique Aqui</p>
             </a>
           </p>

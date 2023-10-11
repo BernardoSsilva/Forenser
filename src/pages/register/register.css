@@ -1,0 +1,19 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    margin-right: 5rem;
+}
+.container{
+    margin-right: auto;
+    width: 65%;
+    height: 78%;
+    align-items: center;
+}
+
+.register-form{
+    margin-right: auto;
+    width: 65%;
+    height: 78%;
+    align-items: center;
+}
