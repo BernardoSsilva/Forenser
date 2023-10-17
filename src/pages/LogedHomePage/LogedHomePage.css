@@ -1,0 +1,48 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #d4d4d4;
+}
+
+.header{
+    background-color: #423f52;
+    color: white;
+    position: absolute;
+    top: 0;
+    height: 4rem;
+    border-radius: 0 0 10% 10%;
+    width: 100vw;
+    text-align: center;
+    z-index: 1;
+}
+
+.header h1{
+    font-size: 1.5rem;
+    align-items: center;
+}
+
+.sideMenu{
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    background-color: rgb(63, 63, 63);
+    width: 10rem;
+    height: 100vh;
+}
+
+.sideMenu ul{
+    display: grid;
+    gap: 1.5rem;
+    text-align: center;
+    margin-right: 1.5rem;
+    margin-left: -1rem;
+    margin-top: 5rem;
+    list-style: none;
+    color: white;
+}
+
+.sideMenu ul li a{
+    color: white;
+    text-decoration: none;
+}
