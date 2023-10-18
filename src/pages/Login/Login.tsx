@@ -1,7 +1,6 @@
-import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../service";
 import './login.css';
 const Login = () => {
