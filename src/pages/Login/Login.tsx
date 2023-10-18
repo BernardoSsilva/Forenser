@@ -1,20 +1,25 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
+import { redirect, useNavigate } from "react-router-dom";
 import { api } from "../../service";
 import './login.css';
-
 const Login = () => {
 
+    const navigate = useNavigate(); 
+
     const handleClickLogin = (values: any) => {
-        try{
-            api.post("/loginP", values).then((Response: any) =>{
-                console.log(Response)
-            })
-        } catch(error){
-            console.log(error)
-        }
-        
+      try {
+        api.post("/loginP", values).then((response) => {
+          console.log(response);
+          if (response.data.token) {
+            localStorage.setItem("jwtToken", response.data.token);
+            navigate('/sesstrue');
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
     };
     
 
@@ -23,7 +28,6 @@ const Login = () => {
         senha: yup.string().min(8, "Senha invalida").required("Este campo é obrigatório"),
     });
 
-    
     
     return(
         <div className="container">
@@ -50,9 +54,11 @@ const Login = () => {
                         name="senha"
                         className="formError"/>
                     </div>
-                    <button className="Button" type="submit">Login</button> Ainda não possui uma conta? <a href='/register'>Registre-se</a>
+                    <button className="Button" type="submit" >Login</button> Ainda não possui uma conta? <a href='/register'>Registre-se</a>
+                    
                 </Form>
             </Formik>
+            
         </div>
     )
 }

@@ -13,9 +13,8 @@ const RoutesDoc = () => {
                 <Route element={ <Home />} path="/"/>
                 <Route element={ <Login /> } path="/login" />
                 <Route element = { <Register /> } path="/register" />
-                <Route element={<LogedHomePage/>} path="/sesstrue"/>
+                <Route element={<LogedHomePage />} path="/sesstrue"/>
             </Routes>
-
         </BrowserRouter>
     )
 }
