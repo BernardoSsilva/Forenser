@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import './LogedHomePage.css';
 const LogedHomePage = () => {
 
@@ -12,7 +11,7 @@ const LogedHomePage = () => {
             <nav className='sideMenu'>
                 <ul className='list'>
                     <li className='listField'>
-                        <a href="#">Boletim de ocorrência</a>
+                        <a href="/boletimocc">Boletim de ocorrência</a>
                     </li>
                     <li className='listField'>
                         <a href="#">Reconhecimento facial</a>
