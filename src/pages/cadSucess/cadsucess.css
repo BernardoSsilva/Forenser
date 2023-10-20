@@ -1,0 +1,54 @@
+.containerCad{
+    background-color: #000000;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+}
+
+.userIcontxt_cad{
+    width: 16.0625rem;
+    height: 16.0625rem;
+}
+
+.tittleCadSuss{
+    color: white;
+    font-size: 3.125rem;
+    font-weight: bold;
+}
+
+.button2{
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    background-color: #63636350;
+    font-size: 2rem;
+    width: 22.1875rem;
+    margin:0 auto;
+
+    height: 3.3125rem;
+    flex-shrink: 0;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    transition: 0.7s;
+  }
+
+  .button2 p{
+    margin-top: 0.2rem;
+    
+    transition: 0.3s;
+ }
+
+ .button2 p:hover{
+   margin-top: 0.45rem;
+   margin-left: 0.4rem;
+   color: white;
+}
+ 
+ .button2:hover{
+   background-color: black;
+   color: white;
+   box-shadow: 2px 5px 5px 0px rgba(255, 255, 255, 0.45) inset;
+ }
+  

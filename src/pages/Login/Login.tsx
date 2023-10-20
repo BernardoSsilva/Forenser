@@ -30,7 +30,7 @@ const Login = () => {
     
     return(
         <div className="container">
-            
+            <a href="/">Retornar a tela inicial</a>
             <Formik 
             onSubmit={handleClickLogin}
             validationSchema={validationLogin}

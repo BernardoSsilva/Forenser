@@ -8,7 +8,10 @@ const Register = () => {
     const handleClickRegister =(values:any) => {
         try{
             api.post("/registerP", values).then((Response: any) => {
-                console.log(Response)
+                console.log(Response);
+                if(Response){
+                    navigate('/cadsucess')
+                }
             });
         } catch(error){
             console.log(error)
@@ -29,6 +32,7 @@ const Register = () => {
     return(
         <div >
                 <div className="container">
+                <a href="/">Retornar a tela inicial</a>
                 <Formik 
                 onSubmit={handleClickRegister}
                 validationSchema={validationRegister} 
