@@ -26,6 +26,17 @@ const BoletimIndex = () => {
                     </p>
                 </a>
             </li>
+
+            <li>
+                <a href="/roubo">
+                    <h1>
+                        Roubo ou furto                    
+                    </h1>
+                    <p>
+                        
+                    </p>
+                </a>
+            </li>
             </ul>
             
         </div>

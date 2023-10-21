@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
-import Register from "../pages/register/Register";
 import LogedHomePage from "../pages/LogedHomePage/LogedHomePage";
-import CadSucess from "../pages/cadSucess/CadSucess";
+import Login from "../pages/Login/Login";
 import BoletimIndex from "../pages/boletim de ocorrencia/boletimindex";
 import AcidenteIndex from "../pages/boletimAcidente/acidenteIndex";
+import CadSucess from "../pages/cadSucess/CadSucess";
+import Register from "../pages/register/Register";
+import RouboIndex from "../pages/boletimRoubo/rouboIndex";
 
 
 const RoutesDoc = () => {
@@ -19,6 +20,7 @@ const RoutesDoc = () => {
                 <Route element={<CadSucess />} path="/cadsucess" />
                 <Route element={<BoletimIndex />} path="/boletimocc" />
                 <Route element={<AcidenteIndex />} path="/acidente"/>
+                <Route element={<RouboIndex />} path="/roubo"/>
             </Routes>
         </BrowserRouter>
     )
