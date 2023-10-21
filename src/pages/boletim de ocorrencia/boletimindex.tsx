@@ -13,16 +13,21 @@ const BoletimIndex = () => {
                     <li className='listField'>
                         <a href="http://Localhost:5173/sesstrue">Retornar ao inicio</a>
                     </li>
-                    <li className='listField'>
-                        <a href="/boletimocc">Boletim de ocorrência</a>
-                    </li>
                 </ul>
             </nav>
-
-            <div className='bol_buttons'>
-                <p><a href="/cadastroboletim">Cadastrar boletim de ocorrencia</a></p>
-                <p><a href="/consultaboletim">Consultar situação do boletim de ocorrencia</a></p>
-            </div>
+            <ul>
+            <li>
+                <a href="/acidente">
+                    <h1>
+                        Acidente automotivo sem vitima
+                    </h1>
+                    <p>
+                        Acidente envolvendo veiculo automotor sem vitima
+                    </p>
+                </a>
+            </li>
+            </ul>
+            
         </div>
         </div>
     )
