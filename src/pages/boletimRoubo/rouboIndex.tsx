@@ -36,6 +36,7 @@ const RouboIndex = () => {
 
     return(
         <div>
+            <p><a href="/boletimocc"> retornar </a></p>
              <h1>Roubo ou furto</h1>
             <Formik
             onSubmit={handleClickRoubo}

@@ -33,6 +33,7 @@ const AcidenteIndex = () => {
 
     return(
         <div>
+            <p><a href="/boletimocc"> retornar </a></p>
             <h1>Acidente de Trânsito sem Vítima</h1>
             <Formik
                 onSubmit={handleClickBoletim}
