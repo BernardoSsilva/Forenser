@@ -37,6 +37,18 @@ const BoletimIndex = () => {
                     </p>
                 </a>
             </li>
+
+
+            <li>
+                <a href="/violencia">
+                    <h1>
+                        Violencia domestica                   
+                    </h1>
+                    <p>
+                        
+                    </p>
+                </a>
+            </li>
             </ul>
             
         </div>
