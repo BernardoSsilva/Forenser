@@ -1,90 +1,29 @@
 .App {
     text-align: center;
-    background: #F6F5F5;
-    width: 98vw;
-    height: 100vh;
-  }
-  
-  .textBox1{
-    color: #000;
-    font-family: Kiwi Maru;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    
-  }
-  
-  .weAre{
-    width: 34.25rem;
-  height: 9.3125rem;
-  flex-shrink: 0;
-  margin-bottom: -4rem;
-  }
-  
-  .button1{
-    display: flex;
-    justify-content: center;
-    border-radius: 2rem;
-    font-size: 2rem;
-    width: 22.1875rem;
-    height: 3.3125rem;
-    flex-shrink: 0;
-    justify-content: center;
-    color: black;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.45) inset;
-    transition: 0.7s;
-  }
-  
-  .button1 p{
-     margin-top: 0.65rem;
-     
-     transition: 0.3s;
+    width: 100vw;
+    height: 55vh;
+    margin-top: -12rem;
+    background-color: rgba(255, 255, 255, 0.829);
+    border-radius:0 0 5rem 5rem;
+    display: grid;
   }
 
-  .button1 p:hover{
-    margin-top: 0.45rem;
-    color: white;
- }
-  
-  .button1:hover{
-    background-color: black;
-    color: white;
-    box-shadow: 0px 5px 5px 0px rgba(255, 255, 255, 0.45) inset;
+  .textBox1{
+    
+    width: 75%;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: -5rem;
   }
-  
-  .questions{
-    text-align: left;
-    width: 18.625rem;
-    color: #000;
-    margin-left: 2.3rem;
-    font-family: Kiwi Maru;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: -1rem;
+
+  img{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    margin-right: 0;
+    z-index: -1;
   }
-  
-  .weAre h1{
-    margin-left: -12rem;
-  }
-  
-  
-  .title{
-  width: 14rem;
-  height: 2.125rem;
-  flex-shrink: 0;
-  color: #FFF;
-  margin-top: 0.5rem;
-  font-family: Kiwi Maru;
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-  }
-  
+
   .container{
     display: flex;
   }
@@ -96,22 +35,63 @@
   
   
   .App-header {
-    margin-top: -1rem;
-    width: 98.75vw;
-    height: 5rem;
-    flex-shrink: 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background: #000;
-    justify-content: center;
-  }
-  
-  img{
-    flex-shrink: 0;
-    position: absolute;
-    left: 9;
-    right: 0;
+    position: fixed;
+    width: 100%;
     top: 0;
-    margin-top: 4.5rem;
+  }
+
+  .headerItens{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .buttons{
+    margin-top: 1.3rem;
+  }
+
+
+
+  .buttonR{
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    background-color: #374147;
+    text-decoration: none;
+    color: white;
+    transition: .5s;
+    margin-right: 1.5rem;
+    &:hover{
+      color: black;
+      background-color: #7b919e;
+    }
+  }
+
+  .buttonL{
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    background-color: #004977;
+    text-decoration: none;
+    color: white;
+    transition: .5s;
+    &:hover{
+      color: black;
+      background-color: #036eac;
+    }
   }
   
   
   
+
+  .title{
+    width: 14rem;
+    height: 2.125rem;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Kiwi Maru;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: -0.5rem;
+    }

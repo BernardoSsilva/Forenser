@@ -2,7 +2,7 @@ import './LogedHomePage.css';
 const LogedHomePage = () => {
 
     return (
-        <div className="container">
+        <div className="containerLog">
             <header className='header'>
                 <h1>
                     Bem-vindo 
