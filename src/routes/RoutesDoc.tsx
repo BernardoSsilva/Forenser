@@ -8,6 +8,7 @@ import CadSucess from "../pages/cadSucess/CadSucess";
 import Register from "../pages/register/Register";
 import RouboIndex from "../pages/boletimRoubo/rouboIndex";
 import ViolenciaDIndex from "../pages/boletimViolenciaDomestica/violenciaDIndex";
+import Porfile from "../pages/Perfil/porfile";
 
 
 const RoutesDoc = () => {
@@ -23,6 +24,7 @@ const RoutesDoc = () => {
                 <Route element={<AcidenteIndex />} path="/acidente"/>
                 <Route element={<RouboIndex />} path="/roubo"/>
                 <Route element={<ViolenciaDIndex />} path="/violencia"/>
+                <Route element={<Porfile />} path="/porfile"/>
             </Routes>
         </BrowserRouter>
     )

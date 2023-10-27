@@ -3,14 +3,18 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
 import { api } from "../../service";
 import './register.css';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+
+    const navigate = useNavigate();
+
     const handleClickRegister =(values:any) => {
         try{
             api.post("/registerP", values).then((Response: any) => {
                 console.log(Response);
                 if(Response){
-                    navigate('/cadsucess')
+                    navigate('/cadsucess');
                 }
             });
         } catch(error){
