@@ -1,73 +1,46 @@
-/* register.css */
+.container{
+  width: 100vw;
+  height: 120vh;
+  margin: 0;
+  background-color: black;
+}
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 70vw;
-    background-color: #f0f0f0;
-    margin-top: 2rem;
-    margin-left: 25%;
-  }
-  
-  .register-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-  }
-  
-  .register-form h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 3rem;
-  }
-  
-  .formFields {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .formField {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  .formField[type="date"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    width: 97.7%;
-  }
-  
-  .radioGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .radioGroup p {
-    font-size: 16px;
-  }
-  
-  .Button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .formError {
-    color: #f00;
-    font-size: 14px;
-    margin-top: 5px;
-  }
+.registerFIeld{
+  width: 60%;
+  font-size: 1rem;
+  padding: 2px;
+  margin: 0.2rem  0.2rem  0.2rem  0.2rem;
+
+}
+
+.register-form{
+  font-size: 1.2rem;;
+  width: 65%;
+  border: 1px solid black;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  height: 89%;
+  border-radius: 2rem;
+  background-color: rgba(236, 236, 236, 0.349);
+  color: black;
+}
+h1{
+  font-size: 0.75rem;;
+}
+
+.register-form a{
+  color: black;
+  font-style: italic;
+}
+
+.reg-image{
+  width: 100%;
+  height: auto
+}
+
+.userIcontxt_reg{
+  margin-bottom: -3rem;
+  height: 5rem;;
+  width: 5rem;
+}
