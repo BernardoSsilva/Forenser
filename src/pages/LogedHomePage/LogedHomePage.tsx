@@ -30,12 +30,6 @@ const LogedHomePage = () => {
                     <li className='listField'>
                         <a href="#">Reconhecimento facial</a>
                     </li>
-                    <li className='listField'>
-                        <a href="#">Sobre nós</a>
-                    </li>
-                    <li className='listField'>
-                        <a href="#">Como utilizar</a>
-                    </li>
                 </ul>
             </nav>
         </div>

@@ -14,6 +14,8 @@ const Login = () => {
           if (response.data.token) {
             localStorage.setItem("jwtToken", response.data.token);
             navigate('/sesstrue');
+          } else {
+            alert("Usuário ou senha inválidos")
           }
         });
       } catch (error) {

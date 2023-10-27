@@ -63,7 +63,7 @@ const Porfile = () =>{
                 {verificaSexo()}
             </h2>
 
-            <a href="/editPorfile"> Editar Perfil</a>
+            <a href="/editporfile"> Editar Perfil</a>
             <button onClick={handleClickExclude}>excluir Perfil</button>
         </div>
     )
