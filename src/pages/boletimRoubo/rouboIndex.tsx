@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './rouboIndex.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import { api } from '../../service';
 import * as yup from 'yup';
+import jwtDecode from 'jwt-decode';
 
 
 
@@ -10,10 +11,16 @@ import * as yup from 'yup';
 
 const RouboIndex = () => {
 
+    const token = localStorage.getItem("jwtToken")
+    const [id, setId] = useState();
+
+    useEffect(() =>{
+        setId(jwtDecode(token).id)
+    },[])
 
     const handleClickRoubo = (values: any) => {
         try {
-          api.post("/registrarRoubo", values).then((response :any) => {
+          api.post(`/registrarRoubo/${id}`, values).then((response :any) => {
             console.log(response);
           }) 
         }catch (error) {

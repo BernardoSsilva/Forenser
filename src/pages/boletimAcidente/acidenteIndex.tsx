@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './acidenteIndex.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import { api } from '../../service';
 import * as yup from 'yup';
+import jwtDecode from 'jwt-decode';
 
 
 
@@ -10,10 +11,18 @@ import * as yup from 'yup';
 
 const AcidenteIndex = () => {
 
+    const token = localStorage.getItem("jwtToken")
+    const [id, setId] = useState();
+
+    useEffect(() =>{
+        setId(jwtDecode(token).id)
+    },[])
+
     const handleClickBoletim = (values: any) => {
         try {
-          api.post("/registrarAcidente", values).then((response :any) => {
+          api.post(`/registrarAcidente/${id}`, values).then((response :any) => {
             console.log(response);
+            alert("boletim cadastrado com sucesso")
           }) 
         }catch (error) {
             console.log(error);
