@@ -23,7 +23,7 @@ const EditPorfile = () => {
     const editHandleClick = (values:any) => {
         console.log(id);
         try {
-            api.put("/editValues", values).then((response) => {
+            api.put(`/editValues/${id}`, values).then((response) => {
                 console.log(response);
                 if (response) {
                     alert("dados alterados com sucesso");
@@ -47,7 +47,6 @@ const EditPorfile = () => {
             <Formik
                 initialValues={{
                     telefoneField: telefone,
-                    idField: 15,
                     emailField: email
                 }}
                 validationSchema={validateFields}
@@ -56,11 +55,12 @@ const EditPorfile = () => {
                 <Form>
                     
                     <p>Email</p>
-                    <Field name="emailField" type="email" />
+                    <Field name="emailField" type="email" placeholder={email}/>
 
                     <p>Telefone</p>
-                    <Field name="telefoneField" />
+                    <Field name="telefoneField" placeholder={telefone}/>
                     <button type="submit">Salvar</button>
+                    <a href="/porfile">Cancelar</a>
                 </Form>
             </Formik>
         </div>
