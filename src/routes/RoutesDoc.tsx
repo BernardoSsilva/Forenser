@@ -10,6 +10,7 @@ import RouboIndex from "../pages/boletimRoubo/rouboIndex";
 import ViolenciaDIndex from "../pages/boletimViolenciaDomestica/violenciaDIndex";
 import Porfile from "../pages/Perfil/porfile";
 import EditPorfile from "../pages/editPorfile/editPorfile";
+import FacesGenerationIndex from "../pages/geracao de faces/facesGenerationIndex";
 
 
 const RoutesDoc = () => {
@@ -27,6 +28,7 @@ const RoutesDoc = () => {
                 <Route element={<ViolenciaDIndex />} path="/violencia"/>
                 <Route element={<Porfile />} path="/porfile"/>
                 <Route element={<EditPorfile />} path="/editporfile"/>
+                <Route element={<FacesGenerationIndex />} path="/faces" />
             </Routes>
         </BrowserRouter>
     )

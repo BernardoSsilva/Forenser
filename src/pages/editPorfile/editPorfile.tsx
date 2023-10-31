@@ -10,7 +10,7 @@ const EditPorfile = () => {
 
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
-    const [telefone, setTelefone] = useState(""); // Defina um valor inicial aqui
+    const [telefone, setTelefone] = useState("");
     const [id, setId] = useState("");
 
     useEffect(() => {
