@@ -1,54 +1,54 @@
-import React, { useState } from "react";
-
-// import { OpenAI } from "openai";
+import React, { useEffect, useState } from "react";
+import { OpenAI } from "openai";
+import { api } from "../../service";
 
 // const openai = new OpenAI({
-//     apiKey:  
+//     apiKey: "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",
 //     dangerouslyAllowBrowser: true 
 // });
 
-
 const FacesGenerationIndex: React.FC = () => {
-
-    // const logo =
-    // const [userPrompt, setUserPrompt] = useState("");
     // const [imageUrl, setImageUrl] = useState("");
 
-
     // const generateImage = async () => {
-    //     const prompt = userPrompt;
-    //     const maxTokens = 100; 
-    //     const engine = "text-davinci-003";
-
     //     try {
-    //         const response = await openai.completions.create({
-    //             model: engine,
-    //             prompt: prompt,
-    //             max_tokens: maxTokens,
+    //         const response = await openai.images.generate({
+    //             prompt: "A cute baby sea otter",
+    //             n: 1,
+    //             size: "1024x1024"
     //         });
-
-    //         const generatedText = response.choices[0].text.trim();
-    //         setImageUrl(generatedText);
+    //         setImageUrl(response.data[0].url);
     //     } catch (error) {
-    //         console.error("Erro ao chamar API OpenAI:", error);
+    //         console.error("Erro ao gerar imagem:", error);
     //     }
-    //     await new Promise(resolve => setTimeout(resolve, 5000));
     // };
+
+    // useEffect(() => {
+    //     generateImage();
+    // }, []);
+
+    const handleClickGenerate = (values: any) => {
+        try {
+          api.post("/generate", values).then((response) => {
+            console.log(response);
+            alert("Gerado")
+          })
+        }catch (error) {
+            console.log(error);
+          }
+        }
+
 
     return (
         <div>
-            {imageUrl ? (
+            {/* {imageUrl ? (
                 <img src={imageUrl} className="image" alt="ai thing" />
             ) : (
-                <img src={logo} className="image" alt="logo" />
-            )}
+                <p>Carregando...</p>
+            )} */}
 
             <p>O que você deseja ver?</p>
-            <input
-                placeholder="A sunset on the Sydney Opera House"
-                onChange={(e) => setUserPrompt(e.target.value)}
-            />
-            <button onClick={generateImage}>Generate</button>
+            <button onClick={handleClickGenerate}> Gerar </button>
         </div>
     );
 };
