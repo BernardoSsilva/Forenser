@@ -18,7 +18,7 @@ const FacesGenerationIndex = () => {
                 headers:{
                     "Content-Type":"application/json",
                     Authorization:
-                    "Bearer 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",
+                    "Bearer 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",
                     "User-Agent": "Chrome",
                 },
                 body:JSON.stringify({
