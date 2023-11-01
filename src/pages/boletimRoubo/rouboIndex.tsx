@@ -22,6 +22,7 @@ const RouboIndex = () => {
         try {
           api.post(`/registrarRoubo/${id}`, values).then((response :any) => {
             console.log(response);
+            alert("boletim cadastrado com sucesso")
           }) 
         }catch (error) {
             console.log(error);
