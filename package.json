@@ -1,7 +1,8 @@
 {
   "name": "forencerapp",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "proxy": "https://api.openai.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,8 +16,9 @@
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "formik": "^2.4.5",
+    "http-proxy-middleware": "^2.0.6",
     "jwt-decode": "^3.1.2",
-    "openai": "^4.14.2",
+    "openai": "^4.16.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
     "react-dom": "^18.2.0",
