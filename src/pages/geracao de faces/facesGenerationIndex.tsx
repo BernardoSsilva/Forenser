@@ -6,35 +6,22 @@ const FacesGenerationIndex = () => {
   const inputRef = useRef(null);
 
   const imageGenerate = async () => {
-    const prompt = "a stupid black cat";
-    if (!prompt) {
-      alert("Por favor, insira uma descrição.");
-      return;
-    }
-
-    const apiKey = "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"; 
-    const endpoint = "http://localhost:3001/v1/images";
-    const model = "dall-e-3";
-
     try {
-      const response = await axios.post(
-        endpoint,
-        {
-          prompt,
-          model,
-          n: 1,
-          size: "256x256",
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-          },
+      const response = await axios.post("https://api.openai.com/v1/engines/dall-e-2/completions", {
+        // prompt: inputRef.current.value,
+        prompt: "Cat",
+        n: 1,
+        size: "1024x1024",
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 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",
         }
-      );
+      });
 
-      setImageUrl(response.data.data[0].url);
+      setImageUrl(response.data.choices[0].text.trim());
     } catch (error) {
-      console.error("Erro ao gerar imagem:", error);
+      console.error(error);
     }
   };
 
