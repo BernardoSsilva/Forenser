@@ -24,6 +24,7 @@ const ViolenciaDIndex = () => {
           api.post(`/registrarViolenciaD/${id}`, values).then((response :any) => {
             console.log(response);
             alert("boletim cadastrado com sucesso")
+            navigate('/sesstrue');
           }) 
         }catch (error) {
             console.log(error);
@@ -32,7 +33,6 @@ const ViolenciaDIndex = () => {
 
     const validationViolencia =yup.object().shape({
         violencia: yup.string().required("este campo é obrigatório"),
-        obito: yup.string().required("este campo é obrigatório"),
         data_fato: yup.date().required("este campo é obrigatório"),
         horario: yup.string().required("este campo é obrigatório"),
         tipo_local: yup.string().required("este campo é obrigatório"),
@@ -52,7 +52,6 @@ const ViolenciaDIndex = () => {
             validationSchema={validationViolencia} 
             initialValues={{
                 violencia: undefined,
-                obito:undefined,
                 data_fato: undefined,
                 horario: undefined,
                 tipo_local: undefined,
@@ -63,6 +62,7 @@ const ViolenciaDIndex = () => {
             }}>
                     <Form>
                         <p>Houve uso de violencia durante a ocorrencia?</p>
+                        
                         <label>
                                 <Field name="violencia" type="radio" value="S"/>
                                 Sim
@@ -72,15 +72,6 @@ const ViolenciaDIndex = () => {
                                 Não
                             </label>
 
-                            <p>a vitima foi levada a obito?</p>
-                        <label>
-                                <Field name="obito" type="radio" value="S"/>
-                                Sim
-                            </label>
-                            <label>
-                                <Field name="obito" type="radio" value="N" />
-                                Não
-                            </label>
                         <p>Data da ocorrencia</p>
                         <Field name="data_fato" type="date" />
                         <p>Horario da ocorrência</p>

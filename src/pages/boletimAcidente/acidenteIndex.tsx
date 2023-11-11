@@ -23,6 +23,7 @@ const AcidenteIndex = () => {
           api.post(`/registrarAcidente/${id}`, values).then((response :any) => {
             console.log(response);
             alert("boletim cadastrado com sucesso")
+            console.log("gravado com sucesso")
           }) 
         }catch (error) {
             console.log(error);

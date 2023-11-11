@@ -1,8 +1,12 @@
 .containerLog{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     background-color: #d4d4d4;
+}
+
+body{
+    height: 100%;
 }
 
 .header{
@@ -29,7 +33,7 @@
     z-index: 1;
     background-color: rgb(63, 63, 63);
     width: 10rem;
-    height: 100vh;
+    height: 100%;
 }
 
 .sideMenu ul{
@@ -64,6 +68,7 @@
     border-radius: 1rem;
     height: auto;
     width: auto;
+    margin-top: 5%;
 }
 
 table {

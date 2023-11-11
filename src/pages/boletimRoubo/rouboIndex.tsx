@@ -23,6 +23,7 @@ const RouboIndex = () => {
           api.post(`/registrarRoubo/${id}`, values).then((response :any) => {
             console.log(response);
             alert("boletim cadastrado com sucesso")
+            navigate('/sesstrue');
           }) 
         }catch (error) {
             console.log(error);
@@ -62,6 +63,7 @@ const RouboIndex = () => {
                 relato_fato: undefined
             }}>
                     <Form>
+                   
                         <p>Houve uso de violencia durante a ocorrencia?</p>
                         <label>
                                 <Field name="violencia" type="radio" value="S"/>

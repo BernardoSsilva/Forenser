@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './LogedHomePage.css';
 import jwtDecode from 'jwt-decode';
+import { api } from '../../service';
 
 const LogedHomePage = () => {
   const token = localStorage.getItem('jwtToken');
@@ -12,7 +13,7 @@ const LogedHomePage = () => {
   const [nome, setNome] = useState(decodedToken.nome);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/${userId}`)
+    api.get(`/${userId}`)
       .then((response) => {
         setBoletim(response.data);
       })

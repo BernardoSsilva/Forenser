@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import OpenAI from "openai";
 import "./facesGeneration.css";
-import "./loading.gif";
 import "./without.jpg"
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { api } from "../../service";
 
 const FacesGenerationIndex = () => {
   const token = localStorage.getItem('jwtToken');
@@ -12,10 +12,7 @@ const FacesGenerationIndex = () => {
   const userId = decodedToken.id;
   const [boletim, setBoletim] = useState([]);
   const [selectedBoletim, setSelectedBoletim] = useState(null);
-  const [loading, setLoading] = useState(false); // Estado para controlar o carregamento
-  const [imageUrl, setImageUrl] = useState(""); // Estado para a URL da imagem
-  const placeholderImage = loading ? "./loading.gif" : './without.jpg'; // Seleciona o placeholder com base no estado de carregamento
-  
+  const [imageUrl, setImageUrl] = useState(); 
   const [formValues, setFormValues] = useState({
     sex: "",
     age: "",
@@ -30,13 +27,29 @@ const FacesGenerationIndex = () => {
     hairType: ""
   });
 
-  // ... código para obter boletins ...
+  useEffect(() => {
+    api.get(`/${userId}`)
+      .then((response) => {
+        console.log(response.data); // Adicione esta linha
+        setBoletim(response.data);
+      })
+      .catch((error) => {
+        console.error('Erro ao obter boletins:', error);
+      });
+  }, [userId]);
 
   const handleBoletimSelect = (event) => {
     const selectedBoletimId = event.target.value;
-    const selectedBoletim = boletim.find((item) => item.id === selectedBoletimId);
+    console.log("selectedBoletimId:", selectedBoletimId);
+
+    const boletimNumber = selectedBoletimId;
+
+
+    const selectedBoletim = boletim.find((item) => item.id_fato == boletimNumber);
+    console.log("selectedBoletim:", selectedBoletim);
+
     setSelectedBoletim(selectedBoletim);
-  };
+};
 
   const handleSelectChange = (e) => {
     const { id, value } = e.target;
@@ -44,12 +57,11 @@ const FacesGenerationIndex = () => {
   };
 
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "sua chave api",
     dangerouslyAllowBrowser: true
   });
 
   const imageGenerate = async () => {
-    setLoading(true); // Define o estado de carregamento como true ao iniciar a geração de imagem
     try {
       const prompt = `a highly realistic portrayal of a ${formValues.age} ${formValues.skinColor} ${formValues.sex} with ${formValues.hairColor} ${formValues.hairHeight} hair, ${formValues.eyeShape} eyes, ${formValues.faceShape} face, ${formValues.mouthShape} mouth, ${formValues.noseShape} nose, ${formValues.beard} beard, and ${formValues.hairType} hair type.`;
       const image = await openai.images.generate({ model: "dall-e-3", prompt:`${prompt}` });
@@ -57,8 +69,42 @@ const FacesGenerationIndex = () => {
       setImageUrl(imageUrl);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false); // Define o estado de carregamento como false após a geração da imagem (seja bem-sucedida ou não)
+    } 
+  };
+
+  const handleClickSave = async () => {
+    try {
+      // Verifica se há uma imagem gerada antes de prosseguir
+      if (!imageUrl) {
+        console.error('Nenhuma imagem gerada.');
+        return;
+      }
+  
+      // Verifica se há um boletim selecionado antes de prosseguir
+      if (!selectedBoletim) {
+        console.error('Nenhum boletim selecionado.');
+        return;
+      }
+  
+      const description =  `a highly realistic portrayal of a ${formValues.age} ${formValues.skinColor} ${formValues.sex} with ${formValues.hairColor} ${formValues.hairHeight} hair, ${formValues.eyeShape} eyes, ${formValues.faceShape} face, ${formValues.mouthShape} mouth, ${formValues.noseShape} nose, ${formValues.beard} beard, and ${formValues.hairType} hair type.`; 
+      const tipoBoletim = selectedBoletim.tipo; 
+      const boletimId = selectedBoletim.id_fato;
+  
+      const data = {
+        imageUrl: imageUrl,
+        description,
+        tipoBoletim,
+        boletimId,
+      };
+  
+      console.log(data);
+  
+      const response = await api.post(`/salvaFace/${userId}`, data);
+  
+      console.log(response.data);
+    } catch (error) {
+      console.error('Erro ao salvar face:', error);
+      // Adicione tratamento de erro adicional, se necessário
     }
   };
 
@@ -66,7 +112,7 @@ const FacesGenerationIndex = () => {
     <div className="container">
       <div className="image-container">
         <a href="/sesstrue" className="return">Retornar</a>
-        <img className="image" src={imageUrl || placeholderImage} alt="Imagem gerada" />
+        <img className="image" src={imageUrl} alt="Imagem gerada" />
       </div>
 
       <p className='caixaTextoFaces'>
@@ -157,13 +203,15 @@ const FacesGenerationIndex = () => {
         <select id='boletimSelect' onChange={handleBoletimSelect} className="select-dropdown">
           <option value={null}>Selecione um boletim</option>
           {boletim.map((item) => (
-            <option key={item.id} value={item.id}>
-              Boletim #{item.id} - {item.tipo} - {item.relato_fato}
+            <option key={item.id_fato} value={item.id_fato}>
+              Boletim #{item.id_fato} - {item.tipo} - {item.relato_fato}
             </option>
           ))}
         </select>
 
         <button onClick={imageGenerate} className="button-container">Gerar</button>
+
+        <button onClick={handleClickSave} className="button-container">Salvar</button>
       </div>
 
       
