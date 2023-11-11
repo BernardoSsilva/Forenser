@@ -77,6 +77,9 @@ const LogedHomePage = () => {
             <li className='listField'>
                 <a href="/faces">Reconhecimento facial</a>
             </li>
+            <li>
+                <a href="/denuncia">Denuncia Anonima</a>
+            </li>
         </ul>
     </nav>
 </div>

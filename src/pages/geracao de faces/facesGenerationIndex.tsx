@@ -57,7 +57,7 @@ const FacesGenerationIndex = () => {
   };
 
   const openai = new OpenAI({
-    apiKey: "sua chave api",
+    apiKey: "sua chave aqui",
     dangerouslyAllowBrowser: true
   });
 
