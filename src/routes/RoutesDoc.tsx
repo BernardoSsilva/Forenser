@@ -12,6 +12,7 @@ import Porfile from "../pages/Perfil/porfile";
 import EditPorfile from "../pages/editPorfile/editPorfile";
 import FacesGenerationIndex from "../pages/geracao de faces/facesGenerationIndex";
 import Denuncia from "../pages/DenunciaSimples/Denuncia";
+import Agendamento from "../pages/Agendamentos/agendamento";
 
 
 const RoutesDoc = () => {
@@ -31,6 +32,7 @@ const RoutesDoc = () => {
                 <Route element={<EditPorfile />} path="/editporfile"/>
                 <Route element={<FacesGenerationIndex />} path="/faces" />
                 <Route element={<Denuncia />} path="/denuncia"/>
+                <Route element={<Agendamento />} path="/agendamento"/>
             </Routes>
         </BrowserRouter>
     )

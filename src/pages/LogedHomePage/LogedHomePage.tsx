@@ -80,6 +80,10 @@ const LogedHomePage = () => {
             <li>
                 <a href="/denuncia">Denuncia Anonima</a>
             </li>
+
+            <li>
+                <a href="/agendamento">Agendar atendimento</a>
+            </li>
         </ul>
     </nav>
 </div>
