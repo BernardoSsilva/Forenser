@@ -14,12 +14,13 @@
 
   .return{
     margin-left: 2rem;
-    margin-top: -35.5rem;
+    position: absolute;
+    top:0;
     font-size: 2rem;
     color: white;
   }
   
-  .image {
+  .image-FaceGen {
     max-width: 50%;
     max-height: 100%;
     opacity: 100%;
@@ -61,7 +62,7 @@
     position: absolute;
     left: 0;
     margin-left: 1.8%;
-    margin-top: 35rem;
+    margin-top: -5rem;
     padding: 1rem;
     border: solid rgb(196, 1, 179) 1px;
     border-radius: 5px;

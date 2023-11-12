@@ -1,4 +1,5 @@
 import React from "react";
+import InputMask from 'react-input-mask';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
 import { api } from "../../service";
@@ -62,6 +63,11 @@ const Register = () => {
                 <a href="/">Retornar a tela inicial</a>
 
                     <div >
+                        <label>
+                            <p>
+                                Digite seu nome:
+                            </p>
+                        </label>
                     <Field className="registerFIeld" name="nome" placeholder="Nome completo" />
 
                         <ErrorMessage 
@@ -69,14 +75,36 @@ const Register = () => {
                         name="nome"
                         className="formError"/>
 
-                        <Field name="telefone"  className="registerFIeld" placeholder="Telefone" />
+                        <label>
+                            <p>
+                                Digite seu telefone:
+                            </p>
+                        </label>
+                        <Field name="telefone"  className="registerFIeld" 
+                        render={({ field }: any) => ( <InputMask
+                            {...field}
+                            mask="(99) 9 9999-9999"
+                            placeholder="telefone"
+                        />
+                        )}/>
 
                         <ErrorMessage 
                         component="span"
                         name="telefone"
                         className="formError"/>
 
-                        <Field name="cpf" placeholder="CPF" className="registerFIeld"/>
+                        <label>
+                            <p>
+                                Digite seu CPF:
+                            </p>
+                        </label>
+                        <Field name="cpf" render={({ field }: any) => (
+                                    <InputMask
+                                        {...field}
+                                        mask="999.999.999-99"
+                                        placeholder="CPF"
+                                    />
+                                )} className="registerFIeld"/>
 
                         <ErrorMessage 
                         component="span"
@@ -100,12 +128,24 @@ const Register = () => {
                         name="sexo"
                         className="formError"/>
 
+                        <label>
+                            <p>
+                                Digite sua data de nascimento:
+                            </p>
+                        </label>
+
                         <Field name="data_n" type="date" className="registerFIeld"/>
 
                         <ErrorMessage 
                         component="span"
                         name="data_n"
                         className="formError"/>
+
+                        <label>
+                            <p>
+                                Digite seu e-mail:
+                            </p>
+                        </label>
 
                         <Field name="email" placeholder="Email" className="registerFIeld"/>
 
@@ -114,12 +154,24 @@ const Register = () => {
                         name="email"
                         className="formError"/>
 
+                        <label>
+                            <p>
+                                Digite sua senha:
+                            </p>
+                        </label>
+
                         <p><Field name="senha" type="password" placeholder="Senha"  className="registerFIeld"/></p>
 
                         <ErrorMessage 
                         component="span"
                         name="senha"
                         className="formError"/>
+                        
+                        <label>
+                            <p>
+                                Confirme sua senha:
+                            </p>
+                        </label>
                         
                         <p><Field name="confirm" placeholder="Confirmar Senha" className="registerFIeld"/></p>
 

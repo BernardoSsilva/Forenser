@@ -9,8 +9,18 @@ const LogedHomePage = () => {
   const decodedToken = jwtDecode(token);
   const userId = decodedToken.id;
 
+  if(!token){
+    navigate('/');
+  }
+
   const [boletim, setBoletim] = useState([]);
   const [nome, setNome] = useState(decodedToken.nome);
+
+  const handleLogout = () => {
+
+    localStorage.removeItem('jwtToken');
+    navigate('/');
+  };
 
   useEffect(() => {
     api.get(`/${userId}`)
@@ -26,7 +36,7 @@ const LogedHomePage = () => {
     <div className="containerLog">
     <header className='header'>
         <h1>
-            Bem-vindo {nome}
+            Bem-vindo(a) {nome}
         </h1>
     </header>
     <body>
@@ -41,6 +51,7 @@ const LogedHomePage = () => {
                             <td>Comunicante</td>
                             <td>Endereços</td>
                             <td>Relato</td>
+                            <td>imagem</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,6 +63,8 @@ const LogedHomePage = () => {
                             <td>{item.comunicante}</td>
                             <td>{item.endereco}</td>
                             <td>{item.relato_fato}</td>
+                            <td><img src={`/uploads/${item.imagem}`} alt="" /></td>  {/* ultima coisa essencial é carregar as imagens da pasta do backend */}
+
                         </tr>
                         ))
                         ) : (
@@ -83,6 +96,9 @@ const LogedHomePage = () => {
 
             <li>
                 <a href="/agendamento">Agendar atendimento</a>
+            </li>
+            <li>
+                <a href="/" onClick={handleLogout}>Logout</a>
             </li>
         </ul>
     </nav>
