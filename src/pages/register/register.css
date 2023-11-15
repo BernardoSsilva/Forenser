@@ -1,46 +1,35 @@
-.container{
+
+
+
+.body-reg{
   width: 100vw;
-  height: 120vh;
-  margin: 0;
-  background-color: black;
+    background-color: rgb(209, 209, 209);
+    padding: 1rem;
 }
-
 .registerFIeld{
-  width: 60%;
-  font-size: 1rem;
-  padding: 2px;
-  margin: 0.2rem  0.2rem  0.2rem  0.2rem;
-
-}
-
-.register-form{
-  font-size: 1.2rem;;
-  width: 65%;
-  border: 1px solid black;
   align-items: center;
-  margin: 0 auto;
-  text-align: center;
-  height: 89%;
-  border-radius: 2rem;
-  background-color: rgba(236, 236, 236, 0.349);
-  color: black;
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px;
 }
+
 h1{
   font-size: 0.75rem;;
 }
 
-.register-form a{
+.return-reg{
   color: black;
-  font-style: italic;
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
-.reg-image{
-  width: 100%;
-  height: auto
-}
-
-.userIcontxt_reg{
-  margin-bottom: -3rem;
-  height: 5rem;;
-  width: 5rem;
+.container-reg{
+  align-items: center;
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

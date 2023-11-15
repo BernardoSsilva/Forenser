@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from "../../service";
 import { Field, Form, Formik } from "formik";
 import jwtDecode from "jwt-decode";
+import "./agendamento.css"
 
 const Agendamento = () => {
   const token = localStorage.getItem('jwtToken');
@@ -82,10 +83,13 @@ const Agendamento = () => {
   };
 
   return (
-    <div>
+    <div className='body'>
+      <div className="operations">
       <a href="/sesstrue">Retornar ao início</a>
-      <button onClick={openPopup}>Agendar Atendimento</button>
-
+      <button onClick={openPopup} className='ag-button'>Agendar Atendimento</button>
+      </div>
+      
+      <div className="containerAg">
       <table className='table'>
         <thead className='tableHead'>
           <tr className='tr'>
@@ -105,8 +109,8 @@ const Agendamento = () => {
               <td className='td'>{agendamento.hora}</td>
 
               <td className='td'>
-                <button onClick={() => handleExcluir(agendamento)}>Excluir</button>
-                <button onClick={() => handleEditar(agendamento)}>Editar</button>
+                <button  className="ex-button" onClick={() => handleExcluir(agendamento)}>Excluir</button>
+                <button  className="ed-button" onClick={() => handleEditar(agendamento)}>Editar</button>
               </td>
             </tr>
           ))}
@@ -126,16 +130,27 @@ const Agendamento = () => {
               onSubmit={handleAgendar}
             >
               <Form>
-                <label htmlFor=""> Nome: </label>
-                <Field name="nome" type="text" placeholder="Nome" />
+                <div className='fields'>
+                <p>
+                  <label htmlFor=""> Nome: </label>
+                  <Field className="agfield" name="nome" type="text" placeholder="Nome" />
+                </p>
+                
+                <p>
+                  <label htmlFor=""> Data: </label>
+                  <Field className="agfield" name="data" type="date" />
 
-                <label htmlFor=""> Data: </label>
-                <Field name="data" type="date" />
+                </p>
+                
+                <p>
+                  <label htmlFor=""> Hora: </label>
+                  <Field className="agfield" name="hora" type="time" />
+                </p>
+                
+                </div>
+                
 
-                <label htmlFor=""> Hora: </label>
-                <Field name="hora" type="time" />
-
-                <input type="submit" value="Agendar" />
+                <input className="agendar-button" type="submit" value="Agendar" />
                 <button onClick={closePopup}>Fechar</button>
               </Form>
             </Formik>
@@ -165,22 +180,35 @@ const Agendamento = () => {
   }}
 >
         <Form>
-          <label htmlFor=""> Nome: </label>
-          <Field name="nome" type="text" placeholder="Nome" />
+          <div className='fields'>
+            <p>
+              <label htmlFor=""> Nome: </label>
+              <Field className="agfield" name="nome" type="text" placeholder="Nome" />
+            </p>
+         
+            <p>
+              <label htmlFor=""> Data: </label>
+              <Field className="agfield" name="data" type="date" />
+            </p>
+          
+            <p>
+              <label htmlFor=""> Hora: </label>
+              <Field className="agfield" name="hora" type="time" />
+            </p>
+          
+          </div>
+          
 
-          <label htmlFor=""> Data: </label>
-          <Field name="data" type="date" />
-
-          <label htmlFor=""> Hora: </label>
-          <Field name="hora" type="time" />
-
-          <input type="submit" value="Salvar" />
+          <input className="agendar-button" type="submit" value="Salvar" />
           <button onClick={closeEditPopup}>Fechar</button>
         </Form>
       </Formik>
     </div>
   </div>
 )}
+      </div>
+
+      
     </div>
   );
 };

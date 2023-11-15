@@ -42,8 +42,9 @@ const AcidenteIndex = () => {
     })
 
     return(
-        <div>
-            <p><a href="/boletimocc"> retornar </a></p>
+        <div className='body-bol'>
+            <p><a href="/boletimocc" className='linkBol'> Retornar </a></p>
+            <div className="container-bol">
             <h1>Acidente de Trânsito sem Vítima</h1>
             <Formik
                 onSubmit={handleClickBoletim}
@@ -59,12 +60,11 @@ const AcidenteIndex = () => {
                     relato_fato: undefined
                 }}>
                     <Form>
-                        <p>Data da ocorrência</p>
-                        <Field name="data_fato" type="date" />
-                        <p>Horario da ocorrência</p>
-                        <Field name="horario" type="time" />
-                        <p>tipo de local</p>
-                        <Field as="select" name="tipo_local">
+                        <p>Data da ocorrência: <Field name="data_fato" className="bol-field" type="date" /></p>
+                        
+                        <p>Horario da ocorrência: <Field name="horario" className="bol-field" type="time" /></p>
+                        
+                        <p>tipo de local: <Field as="select" name="tipo_local" className="bol-field">
                             <option>
                                 Outros
                             </option>
@@ -74,22 +74,24 @@ const AcidenteIndex = () => {
                             <option>
                                 Via Pública
                             </option>
-                        </Field>
-                        <p>Endereço</p>
-                        <Field name="endereco" type="text"/>
+                        </Field></p>
+                        
+                        <p>Endereço: <Field name="endereco" type="text" className="bol-field"/></p>
+                        
                         <h2>Envolvidos</h2>
-                        <p>Comunicante</p>
-                        <Field name="comunicante" type="text"/>
-                        <p>Motorista</p>
-                        <Field name="motorista" type="text"/>
+                        <p>Comunicante: <Field name="comunicante" type="text" className="bol-field"/></p>
+                        
+                        <p>Motorista: <Field name="motorista" type="text" className="bol-field" /></p>
+                        
                         <p>Veículos envolvidos</p>
-                        <Field name="veiculos" type="text" placeholder="informar: placa, modelo e ano dos veículos"/>
+                        <Field className="textArea" name="veiculos" as="textarea" placeholder="informar: placa, modelo e ano dos veículos"/>
                         <p>Relato do fato</p>
-                        <Field name="relato_fato" type="text"/>
+                        <Field className="textArea" name="relato_fato" as="textarea"/>
 
-                        <button type='submit'>Registrar Boletim</button>
+                        <p><button type='submit'>Registrar Boletim</button></p>
                     </Form>
             </Formik>
+            </div>
         </div>
     )
 }

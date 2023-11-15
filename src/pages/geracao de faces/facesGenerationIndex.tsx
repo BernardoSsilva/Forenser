@@ -5,6 +5,7 @@ import "./facesGeneration.css"
 import jwtDecode from "jwt-decode";
 import { api } from "../../service";
 
+
 const FacesGenerationIndex = () => {
   const token = localStorage.getItem('jwtToken');
   const decodedToken = jwtDecode(token);
@@ -13,39 +14,41 @@ const FacesGenerationIndex = () => {
   const [selectedBoletim, setSelectedBoletim] = useState(null);
   const [imageUrl, setImageUrl] = useState(); 
   const [formValues, setFormValues] = useState({
-    sex: "",
-    age: "",
-    skinColor: "",
-    faceShape: "",
-    hairHeight: "",
-    beard: "",
-    hairColor: "",
-    eyeShape: "",
-    mouthShape: "",
-    noseShape: "",
-    hairType: "",
-    eyeColor: "", 
-    hairStyle: "", 
-    ethnicity: "", 
-    chinShape: "", 
-    headShape: "", 
-    earShape: "", 
-    beardStyle: "", 
-    accessories: "", 
-    facialMarks: "", 
-    beauty: "", 
+    fat: "skiny",
+    sex: "male",
+    age: "young",
+    skinColor: "white",
+    faceShape: "square",
+    hairHeight: "long",
+    beard: "none",
+    hairColor: "black",
+    eyeShape: "round",
+    mouthShape: "large",
+    noseShape: "pointy",
+    hairType: "coiled",
+    eyeColor: "blue", 
+    hairStyle: "mullet", 
+    ethnicity: "caucasian", 
+    chinShape: "pointy", 
+    headShape: "square", 
+    earShape: "small", 
+    beardStyle: "degrade", 
+    accessories: "none", 
+    facialMarks: "none", 
+    beauty: "ugly", 
   });
   
 
   useEffect(() => {
-    api.get(`/${userId}`)
-      .then((response) => {
-        console.log(response.data);
-        setBoletim(response.data);
-      })
-      .catch((error) => {
-        console.error('Erro ao obter boletins:', error);
-      });
+ 
+          api.get(`/${userId}`)
+            .then((secondResponse) => {
+              const boletinsFromSecondApi = secondResponse.data;
+              setBoletim(boletinsFromSecondApi);
+            })
+            .catch((secondError) => {
+              console.error('Erro ao obter boletins na segunda chamada:', secondError);
+            });
   }, [userId]);
 
   const handleBoletimSelect = (event) => {
@@ -67,16 +70,17 @@ const FacesGenerationIndex = () => {
   };
 
   const openai = new OpenAI({
-    //apiKey: "",
+    apiKey: "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",
     dangerouslyAllowBrowser: true
   });
 
   const imageGenerate = async () => {
     try {
-      const prompt = `a highly realistic portrayal of a ${beauty} ${formValues.age} ${formValues.skinColor} ${formValues.sex} with ${formValues.hairColor} ${formValues.hairHeight} hair, ${formValues.eyeShape} eyes, ${formValues.faceShape} face, ${formValues.mouthShape} mouth, ${formValues.noseShape} nose, ${formValues.beard} beard, and ${formValues.hairType} hair type. They have ${formValues.eyeColor} eyes, ${formValues.hairStyle} hair style, ${formValues.ethnicity} ethnicity, ${formValues.chinShape} chin shape, ${formValues.headShape} head shape, ${formValues.earShape} ear shape, ${formValues.beardStyle} beard style, ${formValues.accessories} accessories, and ${formValues.facialMarks} facial marks.`;
+      const prompt = `a highly realistic portrayal of a ${formValues.beauty} ${formValues.fat} ${formValues.age} ${formValues.skinColor} ${formValues.sex} with ${formValues.hairColor} ${formValues.hairHeight} hair, ${formValues.eyeShape} eyes, ${formValues.faceShape} face, ${formValues.mouthShape} mouth, ${formValues.noseShape} nose, ${formValues.beard} beard, and ${formValues.hairType} hair type. They have ${formValues.eyeColor} eyes, ${formValues.hairStyle} hair style, ${formValues.ethnicity} ethnicity, ${formValues.chinShape} chin shape, ${formValues.headShape} head shape, ${formValues.earShape} ear shape, ${formValues.beardStyle} beard style, ${formValues.accessories} accessories, and ${formValues.facialMarks} facial marks.`;
       const image = await openai.images.generate({ model: "dall-e-3", prompt:`${prompt}` });
       const imageUrl = image.data[0].url;
       setImageUrl(imageUrl);
+      localStorage.setItem('generatedImage', imageUrl);
     } catch (error) {
       console.error(error);
     } 
@@ -104,6 +108,9 @@ const FacesGenerationIndex = () => {
       console.log(data);
   
       const response = await api.post(`/salvaFace/${userId}`, data);
+      if (response.status === 200) {
+        localStorage.setItem('generatedImage', imageUrl);
+      }
   
       console.log(response.data);
     } catch (error) {
@@ -112,16 +119,18 @@ const FacesGenerationIndex = () => {
   };
 
   return (
-    <div className="container">
+    <div className="body-faces">
       <div className="image-container">
         <a href="/sesstrue" className="return">Retornar</a>
         <img className="image-FaceGen" src={imageUrl} alt="Imagem gerada" />
-      </div>
 
-      <p className='caixaTextoFaces'>
+        <p className='caixaTextoFaces'>
           <span>Atenção</span><br></br>
           Nenhuma das imagens aqui geradas são 100% condizentes com a realidade, são apenas imagens aproximadas para que possa ser iniciado o procsso de reconhecimento facial
         </p>
+      </div>
+
+     
       
       
       <div className="data-container">
@@ -308,6 +317,17 @@ const FacesGenerationIndex = () => {
 
 </select>
 
+<label htmlFor="fat" className="select-label">
+  Aspecto:
+</label>
+<select id="fat" onChange={handleSelectChange} value={formValues.fat} className="select-dropdown">
+  <option value="fat">Gordo</option>
+  <option value="lean">Magro</option>
+  <option value="anorexic">Anorexico</option>
+  <option value="obese">Obeso</option>
+  <option value="strong">Forte</option>
+</select>
+
 <label htmlFor="headShape" className="select-label">
   Head Shape:
 </label>
@@ -344,12 +364,32 @@ const FacesGenerationIndex = () => {
 </select>
 
 <label htmlFor="beaty" className="select-label">
-  Beleza
+  Beleza:
 </label>
 <select id="beauty" onChange={handleSelectChange} value={formValues.beauty} className="select-dropdown">
   <option value="ugly">feio(a)</option>
   <option value="beauty">bonito(a)</option>
 </select>
+
+<label htmlFor="accessories" className="select-label">
+  Assessorios
+</label>
+<select id="accessories" onChange={handleSelectChange} value={formValues.accessories} className="select-dropdown">
+  <option value="none">Nenhum</option>
+  <option value="earring">Brinco</option>
+  <option value="glasses">Oculos</option>
+</select>
+
+
+<label htmlFor="facialMarks" className="select-label">
+  Marcas faciais
+</label>
+<select id="facialMarks" onChange={handleSelectChange} value={formValues.facialMarks} className="select-dropdown">
+<option value="none">Nenhuma</option>
+  <option value="scars">Cicatrizes</option>
+  <option value="wrinkles">Rugas</option>
+</select>
+
 
 
         <label htmlFor='boletimSelect' className="select-label">Selecione um Boletim de Ocorrência:</label>

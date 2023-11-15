@@ -1,0 +1,40 @@
+.body-bol{
+    width: 100vw;
+    height: 100%;
+    margin: 0;
+    margin-top: -1rem;
+    background-color: rgb(209, 209, 209);
+}
+
+.linkBol{
+    color: black;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.container-bol {
+    width: 60%;
+    
+    background-color: #fff;
+    padding: 20px;
+    margin: auto;
+
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .bol-field{
+    width: 100%;
+    font-size: 1rem;
+    padding: 4px;
+  }
+
+  .textArea{
+    width: 100%;
+    height: 8rem;
+    font-size: 1rem;
+    padding: 5px;
+
+  }

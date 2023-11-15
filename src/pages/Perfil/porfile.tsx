@@ -46,25 +46,31 @@ const Porfile = () =>{
     }
 
     return(
-        <div>
-            <a href='/sesstrue'>retornar</a>
-            <h1>{nome}</h1>
-            <h2>
-                {cpf}
+        <div className="porfile-body">
+            <a className="porfile-a" href='/sesstrue'>Retornar</a>
+            <div className="porfile-container">
+            
+            <h1 className="porfile-h1">{nome}</h1>
+            <h2 className="porfile-h2">
+            <span className='porfile-sp'>Cpf: </span>{cpf}
             </h2>
-            <h2>
-                {email}
+            <h2 className="porfile-h2">
+            <span className='porfile-sp'>E-mail: </span>{email}
 
             </h2>
-            <h2>
-                {telefone}
-            </h2>
-            <h2>
-                {verificaSexo()}
+            <h2 className="porfile-h2">
+            <span className='porfile-sp'>Telefone: </span>{telefone}
             </h2>
 
-            <a href="/editporfile"> Editar Perfil</a>
-            <button onClick={handleClickExclude}>excluir Perfil</button>
+            
+            <h2 className="porfile-h2">
+                <span className='porfile-sp'>Sexo: </span>{verificaSexo()}
+            </h2>
+            
+            <a className="editLinkP" href="/editporfile"> Editar Perfil</a>
+            <button className="porfile-button" onClick={handleClickExclude}>excluir Perfil</button>
+            </div>
+            
         </div>
     )
 }

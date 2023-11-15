@@ -42,7 +42,8 @@ const EditPorfile = () => {
     });
 
     return (
-        <div>
+        <div className="editporfile-body">
+            <div className="editporfile-container">
             <h1>{nome}</h1>
             <Formik
                 initialValues={{
@@ -54,15 +55,17 @@ const EditPorfile = () => {
             >
                 <Form>
                     
-                    <p>Email</p>
-                    <Field name="emailField" type="email" placeholder={email}/>
+                    <p><span className='spnedit'>Email</span> <Field className="editfield" name="emailField" type="email" placeholder={email}/></p>
+                    
 
-                    <p>Telefone</p>
-                    <Field name="telefoneField" placeholder={telefone}/>
-                    <button type="submit">Salvar</button>
-                    <a href="/porfile">Cancelar</a>
+                    <p> <span className='spnedit'>Telefone</span> <Field className="editfield" name="telefoneField" placeholder={telefone}/></p>
+                    
+                    <button type="submit" className='editporfile-button'>Salvar</button>
+                    <a className="editLink" href="/porfile">Cancelar</a>
                 </Form>
             </Formik>
+            </div>
+            
         </div>
     );
 };

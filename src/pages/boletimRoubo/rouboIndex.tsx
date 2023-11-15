@@ -44,8 +44,9 @@ const RouboIndex = () => {
     })
 
     return(
-        <div>
-            <p><a href="/boletimocc"> retornar </a></p>
+        <div className='body-bol'>
+            <p><a href="/boletimocc" className='linkBol'> retornar </a></p>
+             <div className="container-bol">
              <h1>Roubo ou furto</h1>
             <Formik
             onSubmit={handleClickRoubo}
@@ -84,11 +85,11 @@ const RouboIndex = () => {
                                 Não(apenas uma ameaça)
                             </label>
                         <p>Data da ocorrencia</p>
-                        <Field name="data_fato" type="date" />
+                        <Field name="data_fato" type="date" className="bol-field"/>
                         <p>Horario da ocorrência</p>
-                        <Field name="horario" type="time" />
+                        <Field name="horario" type="time" className="bol-field"/>
                         <p>tipo de local</p>
-                        <Field as="select" name="tipo_local">
+                        <Field as="select" name="tipo_local" className="bol-field">
                             <option>
                                 Outros
                             </option>
@@ -100,20 +101,21 @@ const RouboIndex = () => {
                             </option>
                         </Field>
                         <p>Endereço</p>
-                        <Field name="endereco" type="text"/>
+                        <Field name="endereco" type="text" className="bol-field"/>
                         <h2>Envolvidos</h2>
                         <p>Comunicante</p>
-                        <Field name="comunicante" type="text"/>
+                        <Field name="comunicante" type="text" className="bol-field"/>
                         <p>Vitima</p>
-                        <Field name="vitima" type="text"/>
+                        <Field name="vitima" type="text" className="bol-field"/>
                         <p>Objetos roubados</p>
-                        <Field name="objetos" type="text"/>
+                        <Field name="objetos" as="textarea" className="textArea"/>
                         <p>Relato do fato</p>
-                        <Field name="relato_fato" type="text"/>
+                        <Field name="relato_fato" as="textarea" className="textArea"/>
 
                         <button type='submit'>Registrar Boletim</button>
                     </Form>
             </Formik>
+             </div>
         </div>
     )
 }

@@ -1,43 +1,34 @@
 /* register.css */
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 70vw;
-    background-color: #f0f0f0;
-    margin-left: 25%;
-  }
-  
-  .login-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 50%;
-  }
-  
-  .login-form h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    margin-top: -0.5rem;
-    font-size: 3rem;
-  }
-  
-  .formFields {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .formField {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    width: 100%;
-  }
+.body-log{
+  height: 100vh;
+  width: 100vw;
+    background-color: rgb(209, 209, 209);
+    padding: 1rem;
+}
+
+.formField{
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.Paragraph{
+  font-size: 2rem;
+
+}
+
+.container-log{
+  align-items: center;
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
   
   .Button {
     background-color: #007bff;
@@ -53,4 +44,10 @@
     color: #f00;
     font-size: 14px;
     margin-top: 5px;
+  }
+
+  .returnLog{
+    color: black;
+  font-size: 1.5rem;
+  margin-left: 1rem;
   }

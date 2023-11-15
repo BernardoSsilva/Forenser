@@ -8,7 +8,7 @@ const LogedHomePage = () => {
   const token = localStorage.getItem('jwtToken');
   const decodedToken = jwtDecode(token);
   const userId = decodedToken.id;
-
+  const storedImageUrl = localStorage.getItem('generatedImage');
   if(!token){
     navigate('/');
   }
@@ -23,14 +23,32 @@ const LogedHomePage = () => {
   };
 
   useEffect(() => {
-    api.get(`/${userId}`)
+
+    api.get(`/sesstrue/${userId}`)
       .then((response) => {
-        setBoletim(response.data);
+        const boletinsFromSesstrue = response.data;
+  
+        
+        if (boletinsFromSesstrue && boletinsFromSesstrue.length > 0) {
+          
+          setBoletim(boletinsFromSesstrue);
+        } else {
+          
+          api.get(`/${userId}`)
+            .then((secondResponse) => {
+              const boletinsFromSecondApi = secondResponse.data;
+              setBoletim(boletinsFromSecondApi);
+            })
+            .catch((secondError) => {
+              console.error('Erro ao obter boletins na segunda chamada:', secondError);
+            });
+        }
       })
       .catch((error) => {
-        console.error('Erro ao obter boletins:', error);
+        console.error('Erro ao obter boletins na primeira chamada:', error);
       });
   }, [userId]);
+  
 
   return (
     <div className="containerLog">
@@ -63,13 +81,12 @@ const LogedHomePage = () => {
                             <td>{item.comunicante}</td>
                             <td>{item.endereco}</td>
                             <td>{item.relato_fato}</td>
-                            <td><img src={`/uploads/${item.imagem}`} alt="" /></td>  {/* ultima coisa essencial é carregar as imagens da pasta do backend */}
-
+                            <td ><img className="imagem_boletim" src={item.imagem} alt="" /></td>
                         </tr>
                         ))
                         ) : (
                             <tr>
-                                <td colSpan="5">Nenhum boletim de acidente disponível</td>
+                                <td colSpan="6">Nenhum boletim disponível</td>
                             </tr>
                         )}
                     </tbody>

@@ -1,0 +1,53 @@
+.editporfile-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    height: 100vh;
+    width: 100vw;
+  }
+
+.spnedit{
+    font-size: 1.3rem;
+    color: black;
+}
+  
+.editfield{
+    font-size: 1.3rem;
+    width: 100%;
+}
+
+.editLink{
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+  .editporfile-container {
+    width: 60%;
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .editporfile-button {
+    padding: 0.75rem 1.4rem;
+    margin-top: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(1, 184, 32) ;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .editporfile-button:hover {
+    background-color: rgb(1, 255, 43);
+  }
