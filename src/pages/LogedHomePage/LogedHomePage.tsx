@@ -32,17 +32,7 @@ const LogedHomePage = () => {
         if (boletinsFromSesstrue && boletinsFromSesstrue.length > 0) {
           
           setBoletim(boletinsFromSesstrue);
-        } else {
-          
-          api.get(`/${userId}`)
-            .then((secondResponse) => {
-              const boletinsFromSecondApi = secondResponse.data;
-              setBoletim(boletinsFromSecondApi);
-            })
-            .catch((secondError) => {
-              console.error('Erro ao obter boletins na segunda chamada:', secondError);
-            });
-        }
+        } 
       })
       .catch((error) => {
         console.error('Erro ao obter boletins na primeira chamada:', error);

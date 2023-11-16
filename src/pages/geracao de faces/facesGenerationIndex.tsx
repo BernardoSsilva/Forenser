@@ -70,7 +70,7 @@ const FacesGenerationIndex = () => {
   };
 
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "sua chave api",
     dangerouslyAllowBrowser: true
   });
 
@@ -137,183 +137,180 @@ const FacesGenerationIndex = () => {
       <p>O que você deseja ver?</p>
       <label htmlFor="sex" className="select-label">Sex:</label>
       <select id="sex" onChange={handleSelectChange} value={formValues.sex} className="select-dropdown">
-        <option value="man">Male</option>
-        <option value="woman">Female</option>
+        <option value="man">Homem</option>
+        <option value="woman">Mulher</option>
       </select>
 
      
 <label htmlFor="age" className="select-label">
-  Age Group:
+  Grupo de idade:
 </label>
 <select id="age" onChange={handleSelectChange} value={formValues.age} className="select-dropdown">
-  <option value="young">Young</option>
-  <option value="middle-aged">Middle-Aged</option>
-  <option value="elderly">Elderly</option>
-  <option value="child">Child</option>
-  <option value="teen">Teen</option>
+  <option value="young">Jovem adulto</option>
+  <option value="middle-aged">Meia idade</option>
+  <option value="elderly">Idoso</option>
+  <option value="teen">Jovem</option>
   
 </select>
 
 <label htmlFor="skinColor" className="select-label">
-  Skin Color:
+  Pele:
 </label>
 <select id="skinColor" onChange={handleSelectChange} value={formValues.skinColor} className="select-dropdown">
-  <option value="light">Light</option>
-  <option value="medium">Medium</option>
-  <option value="dark">Dark</option>
-  <option value="olive">Olive</option>
-  <option value="pale">Pale</option>
+  <option value="light">Branca</option>
+  <option value="medium">Parda</option>
+  <option value="dark">Escura</option>
+  <option value="olive">Morena</option>
+  <option value="pale">Palida</option>
   
 </select>
 
 
 <label htmlFor="faceShape" className="select-label">
-  Face Shape:
+  Formato do rosto:
 </label>
 <select id="faceShape" onChange={handleSelectChange} value={formValues.faceShape} className="select-dropdown">
   <option value="oval">Oval</option>
-  <option value="round">Round</option>
-  <option value="square">Square</option>
-  <option value="heart">Heart</option>
-  <option value="diamond">Diamond</option>
+  <option value="round">Redonda</option>
+  <option value="square">Quadrada</option>
+  <option value="heart">Coração</option>
+  <option value="diamond">Diamante</option>
   
 </select>
 
 
 <label htmlFor="hairHeight" className="select-label">
-  Hair Height:
+  Altura do cabelo:
 </label>
 <select id="hairHeight" onChange={handleSelectChange} value={formValues.hairHeight} className="select-dropdown">
-  <option value="short">Short</option>
-  <option value="medium">Medium</option>
-  <option value="long">Long</option>
-  <option value="bald">Bald</option>
-  <option value="shaved">Shaved</option>
+  <option value="short">Curto</option>
+  <option value="medium">Medio</option>
+  <option value="long">Longo</option>
+  <option value="bald">Careca</option>
+  <option value="shaved">Raspado</option>
 
 </select>
 
 
 <label htmlFor="hairType" className="select-label">
-  Hair Type:
+  Tipo de cabelo:
 </label>
 <select id="hairType" onChange={handleSelectChange} value={formValues.hairType} className="select-dropdown">
-  <option value="straight">Straight</option>
-  <option value="wavy">Wavy</option>
-  <option value="curly">Curly</option>
-  <option value="coiled">Coiled</option>
-  <option value="frizzy">Frizzy</option>
+  <option value="straight">Liso</option>
+  <option value="wavy">Ondulado</option>
+  <option value="curly">Encaracolado</option>
+  <option value="coiled">Cacheado</option>
+  <option value="frizzy">Frisado</option>
  
 </select>
 
 <label htmlFor="hairColor" className="select-label">
-  Hair Color:
+  Cor do cabelo:
 </label>
 <select id="hairColor" onChange={handleSelectChange} value={formValues.hairColor} className="select-dropdown">
-  <option value="black">Black</option>
-  <option value="brown">Brown</option>
-  <option value="blonde">Blonde</option>
-  <option value="red">Red</option>
-  <option value="gray">Gray</option>
+  <option value="black">Preto</option>
+  <option value="brown">Castanho</option>
+  <option value="blonde">Loiro</option>
+  <option value="red">Ruivo</option>
+  <option value="gray">Grisalo</option>
 
 </select>
 
 
 <label htmlFor="beard" className="select-label">
-  Beard:
+  Barba:
 </label>
 <select id="beard" onChange={handleSelectChange} value={formValues.beard} className="select-dropdown">
-  <option value="none">None</option>
-  <option value="stubble">Stubble</option>
-  <option value="full">Full</option>
-  <option value="goatee">Goatee</option>
-  <option value="moustache">Moustache</option>
+  <option value="none">Sem barba</option>
+  <option value="stubble">Barba por fazer</option>
+  <option value="full">Fechada</option>
+  <option value="goatee">Cavanhaque</option>
+  <option value="moustache">Bigode</option>
 
 </select>
 
 <label htmlFor="eyeShape" className="select-label">
-  Eye Shape:
+  Formato do olho:
 </label>
 <select id="eyeShape" onChange={handleSelectChange} value={formValues.eyeShape} className="select-dropdown">
-  <option value="round">Round</option>
-  <option value="almond">Almond</option>
-  <option value="hooded">Hooded</option>
-  <option value="upturned">Upturned</option>
-  <option value="downturned">Downturned</option>
+  <option value="round">Redondo</option>
+  <option value="almond">Alongado</option>
+  <option value="hooded">Fechado</option>
+  <option value="upturned">Elevado</option>
+  <option value="downturned">Caido</option>
 
 </select>
 
 
 <label htmlFor="mouthShape" className="select-label">
-  Mouth Shape:
+  Formato da boca:
 </label>
 <select id="mouthShape" onChange={handleSelectChange} value={formValues.mouthShape} className="select-dropdown">
-  <option value="small">Small</option>
-  <option value="medium">Medium</option>
-  <option value="large">Large</option>
-  <option value="wide">Wide</option>
-  <option value="thin">Thin</option>
+  <option value="small">Pequena</option>
+  <option value="medium">Media</option>
+  <option value="wide">Grossa</option>
+  <option value="thin">Fina</option>
 
 </select>
 
 
 <label htmlFor="noseShape" className="select-label">
-  Nose Shape:
+  Formato do nariz:
 </label>
 <select id="noseShape" onChange={handleSelectChange} value={formValues.noseShape} className="select-dropdown">
-  <option value="pointed">Pointed</option>
-  <option value="flat">Flat</option>
-  <option value="wide">Wide</option>
-  <option value="snub">Snub</option>
-  <option value="hawk">Hawk</option>
+  <option value="pointed">Pontudo</option>
+  <option value="flat">Chato</option>
+  <option value="wide">Largo</option>
+  <option value="snub">Empinado</option>
+  <option value="hawk">Alquilino(curvo)</option>
   
 </select>
 
 
 <label htmlFor="eyeColor" className="select-label">
-  Eye Color:
+  Cor dos olho:
 </label>
 <select id="eyeColor" onChange={handleSelectChange} value={formValues.eyeColor} className="select-dropdown">
-  <option value="blue">Blue</option>
-  <option value="brown">Brown</option>
-  <option value="green">Green</option>
-  <option value="hazel">Hazel</option>
-  <option value="gray">Gray</option>
+  <option value="blue">Azul</option>
+  <option value="brown">Castanho</option>
+  <option value="green">Verde</option>
+  <option value="gray">Cinza</option>
   
 </select>
 
 
 <label htmlFor="hairStyle" className="select-label">
-  Hair Style:
+  Estilo de cabelo:
 </label>
 <select id="hairStyle" onChange={handleSelectChange} value={formValues.hairStyle} className="select-dropdown">
   <option value="mullet">Mullet</option>
-  <option value="ponytail">Ponytail</option>
-  <option value="bald">Bald</option>
+  <option value="ponytail">Rabo de cavalo</option>
+  <option value="bald">Careca</option>
   <option value="afro">Afro</option>
-  <option value="spiky">Spiky</option>
+  <option value="spiky">Bagunçado</option>
 </select>
 
 <label htmlFor="ethnicity" className="select-label">
-  Ethnicity:
+  Etinia:
 </label>
 <select id="ethnicity" onChange={handleSelectChange} value={formValues.ethnicity} className="select-dropdown">
-  <option value="caucasian">Caucasian</option>
-  <option value="african">African</option>
-  <option value="asian">Asian</option>
-  <option value="hispanic">Hispanic</option>
-  <option value="middle-eastern">Middle Eastern</option>
+  <option value="caucasian">Caucasiana</option>
+  <option value="african">Africana</option>
+  <option value="asian">Asiatica</option>
+  <option value="hispanic">Hispanica</option>
+  <option value="middle-eastern">Oriente medio</option>
 </select>
 
 
 <label htmlFor="chinShape" className="select-label">
-  Chin Shape:
+  Formato do queixo:
 </label>
 <select id="chinShape" onChange={handleSelectChange} value={formValues.chinShape} className="select-dropdown">
-  <option value="pointed">Pointed</option>
-  <option value="square">Square</option>
-  <option value="rounded">Rounded</option>
-  <option value="cleft">Cleft</option>
-  <option value="strong">Strong</option>
+  <option value="pointed">Pontudo</option>
+  <option value="square">Quadrado</option>
+  <option value="rounded">Arredondado</option>
+  <option value="cleft">Fendido</option>
+  <option value="strong">Definido</option>
 
 </select>
 
@@ -329,38 +326,35 @@ const FacesGenerationIndex = () => {
 </select>
 
 <label htmlFor="headShape" className="select-label">
-  Head Shape:
+  Formato da cabeça:
 </label>
 <select id="headShape" onChange={handleSelectChange} value={formValues.headShape} className="select-dropdown">
-  <option value="round">Round</option>
+  <option value="round">Redonda</option>
   <option value="oval">Oval</option>
-  <option value="heart">Heart</option>
-  <option value="diamond">Diamond</option>
-  <option value="square">Square</option>
+  <option value="heart">Coração</option>
+  <option value="diamond">Diamante</option>
+  <option value="square">Quadrada</option>
 
 </select>
 
 <label htmlFor="earShape" className="select-label">
-  Ear Shape:
+  Formato das orelhas:
 </label>
 <select id="earShape" onChange={handleSelectChange} value={formValues.earShape} className="select-dropdown">
-  <option value="small">Small</option>
-  <option value="large">Large</option>
-  <option value="attached">Attached</option>
-  <option value="pointy">Pointy</option>
-  <option value="lobed">Lobed</option>
+  <option value="small">Pequenas</option>
+  <option value="large">Grandes</option>
+  <option value="pointy">Pontudas</option>
 
 </select>
 
 <label htmlFor="beardStyle" className="select-label">
-  Beard Style:
+  Estilo da barba:
 </label>
 <select id="beardStyle" onChange={handleSelectChange} value={formValues.beardStyle} className="select-dropdown">
-  <option value="long">Long</option>
+  <option value="long">Longa</option>
   <option value="degrade">Degrade</option>
-  <option value="circle">Circle</option>
-  <option value="goatee">Goatee</option>
-  <option value="muttonchops">Mutton Chops</option>
+  <option value="circle">Circular</option>
+  <option value="muttonchops">Costeletas</option>
 </select>
 
 <label htmlFor="beaty" className="select-label">
