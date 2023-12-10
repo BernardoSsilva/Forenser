@@ -5,7 +5,9 @@
 <H2> Justificativa </H2>
 <p> Durante o processo investigativo brasileiro a coleta de parte dos dados pode ser feita online, entretanto o retrato falado deve ser feito em uma delegacia da polícia civil, acompanhado de um profissional papiloscopista, e é necessário wue a vitima se locomova até a delegacia, vítima esta que passa por momentos difíceis recorrente a traumas recentes, por isso o projeto Forenser busca oferecer a alternativa de realizar o reconhecimento facial por meio de um portal com inteligência artificial</p>
 
-<h2> Diferença de metodos</h2>
+<hr>
+
+<H2> Diferença de metodos</H2>
 <div>
   <div>
     <p>Método atual</p>
