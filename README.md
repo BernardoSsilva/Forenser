@@ -11,9 +11,12 @@
 <div style="display: inline-block; align:center;">
   <div align="center">
     <p>Imagem gerada no método atual</p>
+    <img style="border-radius:100%" src=""/>
   </div>
   <div align="center">
     <p>Imagem gerada por inteligência artificial </p>
+    <img style="border-radius:100%" src="![b09d2fcd-1093-4355-81b8-a27796f8d0f3](https://github.com/BernardoSsilva/Forencer/assets/126777966/eb806742-f354-426c-a1a8-117f17ae371c)
+"/>
   </div>
 </div>
 
@@ -30,6 +33,9 @@
  <li><p> MySQL </p></li>
   <li><p>Dall-e API</p></li>
 </ul>
+
+<hr>
+<h2>Projeto final</h2>
 
 
 <hr>
