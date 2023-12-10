@@ -8,7 +8,7 @@
 <hr>
 
 <H2> Diferença de metodos</H2>
-<div style="display: inline-flex; justify-content=space-between;">
+<div style="display: inline-block; justify-content:space-between; align:center;">
   <div>
     <p>Método atual</p>
   </div>
