@@ -8,7 +8,7 @@
 <hr>
 
 <H2> Diferença de metodos</H2>
-<div style="display: inline-block; justify-content:space-between; align:center;">
+<div style="display: inline-block; align:center;">
   <div align="center">
     <p>Imagem gerada no método atual</p>
   </div>
