@@ -35,8 +35,7 @@
 
 <hr>
 <h2>Projeto final</h2>
-<img src="https://github.com/BernardoSsilva/Forencer/assets/126777966/02f9f5a8-11f2-4de6-85b2-07490cc24dd6
-"/>
+<img src="https://github.com/BernardoSsilva/Forencer/assets/126777966/02f9f5a8-11f2-4de6-85b2-07490cc24dd6"/>
 
 
 <hr>
