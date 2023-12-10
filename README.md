@@ -8,7 +8,7 @@
 <hr>
 
 <H2> Diferença de metodos</H2>
-<div style="display: flex">
+<div style="display: flex; justify-content=space-between;">
   <div>
     <p>Método atual</p>
   </div>
