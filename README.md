@@ -15,7 +15,7 @@
   </div>
   <div align="center">
     <p>Imagem gerada por inteligência artificial </p>
-    <img border-radius="100%" width="200" height="200" src="https://github.com/BernardoSsilva/Forencer/assets/126777966/eb806742-f354-426c-a1a8-117f17ae371c"/>
+    <img border-radius=100% width="250" height="250" src="https://github.com/BernardoSsilva/Forencer/assets/126777966/eb806742-f354-426c-a1a8-117f17ae371c"/>
   </div>
 </div>
 
