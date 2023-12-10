@@ -11,7 +11,7 @@
 <div style="display: inline-block; align:center;">
   <div align="center">
     <p>Imagem gerada no método atual</p>
-    <img style="border-radius:100%" src="https://s2.glbimg.com/OBhBdPDDvNrWkf4uJlHjLGoM3jg=/s.glbimg.com/jo/g1/f/original/2014/10/14/fotos_rosto.jpg"/>
+    <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://s2.glbimg.com/OBhBdPDDvNrWkf4uJlHjLGoM3jg=/s.glbimg.com/jo/g1/f/original/2014/10/14/fotos_rosto.jpg"/>
   </div>
   <div align="center">
     <p>Imagem gerada por inteligência artificial </p>
