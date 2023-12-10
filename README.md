@@ -8,7 +8,7 @@
 <hr>
 
 <H2> Diferença de metodos</H2>
-<div style="display: flex; align-items: center; justify-content: center;">
+<div align="center">
   <div style="text-align: center; margin-right: 20px;">
     <p>Imagem gerada no método atual</p>
     <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://s2.glbimg.com/OBhBdPDDvNrWkf4uJlHjLGoM3jg=/s.glbimg.com/jo/g1/f/original/2014/10/14/fotos_rosto.jpg" alt="Imagem método atual"/>
