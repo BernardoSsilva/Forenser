@@ -8,14 +8,14 @@
 <hr>
 
 <H2> Diferença de metodos</H2>
-<div style="display: inline-block; align:center;">
-  <div align="center">
+<div style="display: flex; align-items: center; justify-content: center;">
+  <div style="text-align: center; margin-right: 20px;">
     <p>Imagem gerada no método atual</p>
-    <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://s2.glbimg.com/OBhBdPDDvNrWkf4uJlHjLGoM3jg=/s.glbimg.com/jo/g1/f/original/2014/10/14/fotos_rosto.jpg"/>
+    <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://s2.glbimg.com/OBhBdPDDvNrWkf4uJlHjLGoM3jg=/s.glbimg.com/jo/g1/f/original/2014/10/14/fotos_rosto.jpg" alt="Imagem método atual"/>
   </div>
-  <div align="center">
-    <p>Imagem gerada por inteligência artificial </p>
-    <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://github.com/BernardoSsilva/Forencer/assets/126777966/eb806742-f354-426c-a1a8-117f17ae371c"/>
+  <div style="text-align: center;">
+    <p>Imagem gerada por inteligência artificial</p>
+    <img style="border-radius: 50%; width: 250px; height: 250px;" src="https://github.com/BernardoSsilva/Forencer/assets/126777966/eb806742-f354-426c-a1a8-117f17ae371c" alt="Imagem inteligência artificial"/>
   </div>
 </div>
 
