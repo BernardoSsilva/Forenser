@@ -4,5 +4,8 @@
 
 <h2>tecnologia usadas</h2>
 <ul>
-  <li><p> React </p></li>
+  <li><p> React + vite </p></li>
+ <li><p> Node </p></li>
+<li><p> Express </p></li>
+ <li><p> MySQL </p></li>
 </ul>
