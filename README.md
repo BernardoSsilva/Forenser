@@ -9,10 +9,10 @@
 
 <H2> Diferença de metodos</H2>
 <div style="display: inline-block; justify-content:space-between; align:center;">
-  <div>
-    <p>Método atual</p>
+  <div align="center">
+    <p>Imagem gerada no método atual</p>
   </div>
-  <div>
+  <div align="center">
     <p>Imagem gerada por inteligência artificial </p>
   </div>
 </div>
