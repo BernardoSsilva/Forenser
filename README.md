@@ -1,162 +1,64 @@
-# 🚔 Forenser — Digital Public Safety Platform
+# Forenser
 
-> ⚠️ **Status do Projeto:** Em processo de reestruturação completa (refatoração arquitetural)
+Portal digital de serviços da polícia civil. Frontend reescrito em **Next.js (App Router)** com **TypeScript**, **Tailwind CSS v4** e **shadcn/ui**, substituindo a versão anterior em Vite + React (disponível no histórico do repositório).
 
----
+## O que o portal oferece
 
-## 📌 Sobre o Projeto
+- Registro de boletins de ocorrência (acidente de trânsito, roubo/furto, violência doméstica)
+- Denúncia anônima
+- Agendamento de atendimento presencial (criar, listar, editar e excluir)
+- Geração de retrato falado com IA (**DALL·E 3**, via [API do backend](https://github.com/BernardoSsilva/Forenser-backend))
+- Autenticação (registro/login com JWT) e gerenciamento de perfil
 
-O **Forenser** é uma plataforma desenvolvida com o objetivo de **modernizar e unificar serviços digitais da polícia civil**, permitindo que cidadãos realizem procedimentos importantes de forma remota, segura e acessível.
+## Stack
 
-O projeto surgiu como trabalho de conclusão de curso técnico e está sendo **reconstruído com foco em arquitetura, escalabilidade e boas práticas de engenharia de software**, com o objetivo de se tornar um projeto de referência em portfólio.
+- **Next.js 16** (App Router, Server e Client Components)
+- **Tailwind CSS v4** + **shadcn/ui** (componentes acessíveis com Radix UI)
+- **React Hook Form** + **Zod** para formulários e validação
+- **TanStack Query** para busca e cache de dados da API
+- **Axios** como cliente HTTP
 
----
+## Arquitetura do frontend
 
-## 🚨 Problema
+```
+src/
+├── app/                 # rotas (App Router)
+│   ├── (app)/            # área autenticada — layout com sidebar
+│   ├── login/, register/ # páginas públicas
+│   └── page.tsx           # landing page
+├── components/
+│   ├── ui/               # componentes shadcn/ui (button, form, dialog, table, ...)
+│   ├── layout/            # shell do dashboard, navegação
+│   └── faces/             # componentes específicos do retrato falado
+├── hooks/                # hooks de autenticação e dados do usuário
+├── lib/
+│   ├── api/               # funções que chamam a API do backend, por domínio
+│   ├── validations/        # schemas Zod por formulário
+│   └── api-client.ts        # instância axios com interceptor de autenticação
+└── middleware.ts          # protege rotas autenticadas a partir do cookie do token
+```
 
-No contexto atual, diversos serviços essenciais ainda exigem presença física, como:
+A autenticação é feita via JWT emitido pelo backend: o token é salvo em cookie e anexado
+automaticamente às requisições pelo `apiClient`. O middleware bloqueia o acesso às páginas do
+dashboard quando não há token, e o hook `useCurrentUser` mantém os dados do usuário sincronizados
+via TanStack Query.
 
-* Registro de boletins de ocorrência
-* Criação de retratos falados
-* Atendimento presencial em delegacias
+## Rodando localmente
 
-Isso gera:
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
 
-* Dificuldade de acesso
-* Sobrecarga em unidades físicas
-* Desconforto para vítimas em situações sensíveis
+Por padrão a aplicação espera a API em `http://localhost:3001` (ver
+[Forenser-backend](https://github.com/BernardoSsilva/Forenser-backend)). Ajuste
+`NEXT_PUBLIC_API_URL` em `.env.local` caso a API esteja em outro endereço.
 
----
+## Scripts
 
-## 💡 Solução Proposta
-
-O Forenser propõe um portal centralizado onde usuários podem:
-
-* 📄 Registrar boletins de ocorrência
-* 🕵️ Criar denúncias anônimas
-* 📅 Agendar atendimentos
-* 🧠 Gerar retratos falados utilizando IA generativa
-
----
-
-## 🤖 Diferencial — Retrato Falado com IA
-
-Tradicionalmente, o retrato falado exige a presença da vítima com um profissional especializado.
-
-O Forenser busca **digitalizar esse processo**, utilizando inteligência artificial para:
-
-* Reduzir a necessidade de deslocamento
-* Tornar o processo mais rápido
-* Diminuir o impacto emocional sobre a vítima
-
----
-
-## 🧠 Arquitetura (Atual vs. Nova)
-
-### 🔴 Versão Atual
-
-* Monolítica
-* Estrutura com baixo desacoplamento
-* Dificuldade de manutenção e evolução
-
-### 🟢 Nova Versão (Em desenvolvimento)
-
-* Arquitetura modular
-* Separação clara de responsabilidades
-* Foco em escalabilidade e testabilidade
-* Possível adoção de padrões como:
-
-  * Clean Architecture ou DDD
-  * API bem definida
-  * Camadas desacopladas
-
----
-
-## ⚙️ Tecnologias Utilizadas
-
-### Versão Atual
-
-* React.js (Vite)
-* Node.js
-* Express
-* MySQL
-* Integração com IA (DALL·E API)
-
----
-
-## 🚀 Funcionalidades
-
-* Registro de boletins de ocorrência
-* Criação de denúncias anônimas
-* Agendamento de atendimentos
-* Geração de retratos falados com IA
-
----
-
-## 🧪 Status de Desenvolvimento
-
-O projeto está passando por:
-
-* 🔄 Refatoração completa da arquitetura
-* 🧱 Reestruturação do backend
-* 📐 Melhoria na organização do código
-* 🧪 Planejamento para inclusão de testes
-
----
-
-## 🔗 Repositórios
-
-* 🎨 Frontend:
-  https://github.com/BernardoSsilva/Forenser
-
-* 🔙 Backend (versão antiga):
-  https://github.com/BernardoSsilva/Forenser_BackEnd/tree/Old-Code
-
----
-
-## 👨‍💻 Contribuição
-
-Neste projeto, fui responsável por:
-
-* Idealização da solução
-* Desenvolvimento full stack
-* Integração com IA generativa
-* Estruturação inicial da aplicação
-* Planejamento e execução da refatoração completa
-
----
-
-## 📈 Próximos Passos
-
-* Implementar nova arquitetura (DDD ou Clean Architecture)
-* Adicionar autenticação e controle de acesso
-* Criar testes automatizados
-* Melhorar experiência do usuário
-* Preparar deploy em ambiente cloud
-
----
-
-## 🌍 Impacto Esperado
-
-* Digitalização de serviços públicos
-* Redução da burocracia
-* Maior acessibilidade para cidadãos
-* Melhoria na experiência de vítimas em situações sensíveis
-
----
-
-## 💬 Considerações Finais
-
-O Forenser representa um projeto com alto potencial de impacto, combinando:
-
-* Tecnologia
-* Inovação
-* Relevância social
-
-A nova versão busca elevar o nível técnico da solução, transformando-o em um sistema robusto e alinhado com boas práticas modernas de desenvolvimento.
-
----
-
-## 📞 Contato
-
-* GitHub: https://github.com/BernardoSsilva
+```bash
+npm run dev      # ambiente de desenvolvimento
+npm run build    # build de produção
+npm run lint     # eslint
+```
