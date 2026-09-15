@@ -30,6 +30,7 @@ import {
 import { registerSchema, type RegisterFormValues } from '@/lib/validations/auth';
 import { registerUser } from '@/lib/api/auth';
 import { extractErrorMessage } from '@/lib/api-client';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -60,14 +61,22 @@ export default function RegisterPage() {
   });
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-secondary/40 px-4 py-12">
-      <Card className="w-full max-w-lg">
+    <div className="bg-secondary/30 relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
+      <div
+        aria-hidden
+        className="bg-primary/20 pointer-events-none absolute -top-40 left-1/2 -z-10 h-96 w-[36rem] -translate-x-1/2 rounded-full blur-3xl"
+      />
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
+      <Card className="border-border/70 w-full max-w-lg shadow-lg">
         <CardHeader className="items-center text-center">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <ShieldCheck className="size-6 text-primary" />
-            Forenser
+            <span className="bg-primary text-primary-foreground flex size-11 items-center justify-center rounded-xl shadow-sm">
+              <ShieldCheck className="size-5.5" />
+            </span>
           </Link>
-          <CardTitle className="pt-2">Criar minha conta</CardTitle>
+          <CardTitle className="pt-3 text-xl">Criar minha conta</CardTitle>
           <CardDescription>Leva menos de um minuto</CardDescription>
         </CardHeader>
         <Form {...form}>
@@ -193,9 +202,9 @@ export default function RegisterPage() {
               <Button type="submit" className="w-full" disabled={mutation.isPending}>
                 {mutation.isPending ? 'Enviando...' : 'Registrar-se'}
               </Button>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Já possui uma conta?{' '}
-                <Link href="/login" className="font-medium text-primary hover:underline">
+                <Link href="/login" className="text-primary font-medium hover:underline">
                   Realizar login
                 </Link>
               </p>
