@@ -1,9 +1,10 @@
 'use client';
 
+import type { ElementType } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
-import { FileText, Sparkles } from 'lucide-react';
+import { FileText, Sparkles, CalendarClock } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -19,13 +20,50 @@ import {
 } from '@/components/ui/table';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { listIncidentReports } from '@/lib/api/incident-reports';
+import { listAppointments } from '@/lib/api/appointments';
 import { INCIDENT_REPORT_TYPE_LABELS, formatDate } from '@/lib/incident-report-labels';
+
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+  isLoading,
+}: {
+  icon: ElementType;
+  label: string;
+  value: number | string;
+  isLoading?: boolean;
+}) {
+  return (
+    <Card className="border-border/70">
+      <CardContent className="flex items-center gap-4">
+        <span className="bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center rounded-xl">
+          <Icon className="size-5" />
+        </span>
+        <div className="min-w-0">
+          <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+            {label}
+          </p>
+          {isLoading ? (
+            <Skeleton className="mt-1 h-6 w-10" />
+          ) : (
+            <p className="text-2xl font-semibold tabular-nums">{value}</p>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function DashboardPage() {
   const { data: user } = useCurrentUser();
   const { data: reports, isLoading } = useQuery({
     queryKey: ['incident-reports'],
     queryFn: listIncidentReports,
+  });
+  const { data: appointments, isLoading: isLoadingAppointments } = useQuery({
+    queryKey: ['appointments'],
+    queryFn: listAppointments,
   });
 
   return (
@@ -35,6 +73,27 @@ export default function DashboardPage() {
         <p className="text-muted-foreground">
           Acompanhe aqui os boletins de ocorrência registrados por você.
         </p>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-3">
+        <StatCard
+          icon={FileText}
+          label="Boletins registrados"
+          value={reports?.length ?? 0}
+          isLoading={isLoading}
+        />
+        <StatCard
+          icon={Sparkles}
+          label="Retratos gerados"
+          value={reports?.filter((report) => report.face).length ?? 0}
+          isLoading={isLoading}
+        />
+        <StatCard
+          icon={CalendarClock}
+          label="Agendamentos ativos"
+          value={appointments?.length ?? 0}
+          isLoading={isLoadingAppointments}
+        />
       </div>
 
       <Card>
@@ -99,7 +158,7 @@ export default function DashboardPage() {
               </TableBody>
             </Table>
           ) : (
-            <p className="py-8 text-center text-sm text-muted-foreground">
+            <p className="text-muted-foreground py-8 text-center text-sm">
               Nenhum boletim disponível. Que tal registrar o primeiro?
             </p>
           )}

@@ -1,12 +1,6 @@
 import Link from 'next/link';
 import { Car, HandCoins, HeartCrack } from 'lucide-react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const REPORT_TYPES = [
   {
@@ -36,7 +30,7 @@ export default function IncidentReportsHubPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold">Boletim de ocorrência</h1>
-        <p className="max-w-2xl text-muted-foreground">
+        <p className="text-muted-foreground max-w-2xl">
           Este serviço registra ocorrências e as direciona para a delegacia da área do fato,
           oferecendo praticidade e agilidade para evitar deslocamentos desnecessários.
         </p>
@@ -44,11 +38,13 @@ export default function IncidentReportsHubPage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {REPORT_TYPES.map((reportType) => (
-          <Link key={reportType.href} href={reportType.href}>
-            <Card className="h-full transition-colors hover:border-primary">
+          <Link key={reportType.href} href={reportType.href} className="group">
+            <Card className="border-border/70 group-hover:border-primary/40 h-full transition-all group-hover:-translate-y-1 group-hover:shadow-lg">
               <CardHeader>
-                <reportType.icon className="size-8 text-primary" />
-                <CardTitle className="pt-2">{reportType.title}</CardTitle>
+                <span className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground flex size-12 items-center justify-center rounded-xl transition-colors">
+                  <reportType.icon className="size-6" />
+                </span>
+                <CardTitle className="pt-3">{reportType.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>{reportType.description}</CardDescription>

@@ -31,6 +31,7 @@ import { login } from '@/lib/api/auth';
 import { setToken } from '@/lib/auth-token';
 import { extractErrorMessage } from '@/lib/api-client';
 import { CURRENT_USER_QUERY_KEY } from '@/hooks/use-current-user';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -54,14 +55,22 @@ export default function LoginPage() {
   });
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-secondary/40 px-4 py-12">
-      <Card className="w-full max-w-sm">
+    <div className="bg-secondary/30 relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
+      <div
+        aria-hidden
+        className="bg-primary/20 pointer-events-none absolute -top-40 left-1/2 -z-10 h-96 w-[36rem] -translate-x-1/2 rounded-full blur-3xl"
+      />
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
+      <Card className="border-border/70 w-full max-w-sm shadow-lg">
         <CardHeader className="items-center text-center">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <ShieldCheck className="size-6 text-primary" />
-            Forenser
+            <span className="bg-primary text-primary-foreground flex size-11 items-center justify-center rounded-xl shadow-sm">
+              <ShieldCheck className="size-5.5" />
+            </span>
           </Link>
-          <CardTitle className="pt-2">Entrar na sua conta</CardTitle>
+          <CardTitle className="pt-3 text-xl">Entrar na sua conta</CardTitle>
           <CardDescription>Acesse os serviços do portal da polícia civil</CardDescription>
         </CardHeader>
         <Form {...form}>
@@ -98,9 +107,9 @@ export default function LoginPage() {
               <Button type="submit" className="w-full" disabled={mutation.isPending}>
                 {mutation.isPending ? 'Entrando...' : 'Entrar'}
               </Button>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Ainda não possui uma conta?{' '}
-                <Link href="/register" className="font-medium text-primary hover:underline">
+                <Link href="/register" className="text-primary font-medium hover:underline">
                   Registre-se
                 </Link>
               </p>
